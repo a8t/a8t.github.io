@@ -8,12 +8,7 @@ $breakpoints: () !global;
 
 /// Vendor prefixes.
 /// @var {list}
-$vendor-prefixes: (
-    '-moz-',
-    '-webkit-',
-    '-ms-',
-    ''
-);
+$vendor-prefixes: ('-moz-', '-webkit-', '-ms-', '');
 
 /// Properties that should be vendorized.
 /// @var {list}
@@ -183,7 +178,7 @@ $vendor-values: (
     // Queries.
     @if $queries {
         @each $k, $v in $queries {
-            $query: $query + ' and (' + $k +':'+ $v + ')';
+            $query: $query + ' and (' + $k + ':' + $v + ')';
         }
     }
 
@@ -385,23 +380,16 @@ $vendor-values: (
 @mixin grid-gutters($gutters, $class: null, $multiplier: 1) {
     // Expand gutters if it's not a list.
     @if length($gutters) == 1 {
-        $gutters: (
-            $gutters,
-            0
-        );
+        $gutters: ($gutters, 0);
     }
-
     // Get column and row gutter values.
     $c: nth($gutters, 1);
     $r: nth($gutters, 2);
-
     // Get class (if provided).
     $x: '';
-
     @if $class {
         $x: '.' + $class;
     }
-
     // Default.
     .row#{$x} > * {
         padding: ($r * $multiplier) 0 0 ($c * $multiplier);
@@ -409,7 +397,6 @@ $vendor-values: (
     .row#{$x} {
         margin: ($r * $multiplier * -1) 0 -1px ($c * $multiplier * -1);
     }
-
     // Uniform.
     .row.uniform#{$x} > * {
         padding: ($c * $multiplier) 0 0 ($c * $multiplier);
@@ -418,9 +405,8 @@ $vendor-values: (
         margin: ($c * $multiplier * -1) 0 -1px ($c * $multiplier * -1);
     }
 }
-
-/// Wraps @content in vendorized keyframe blocks.
-/// @param {string} $name Name.
+// / Wraps @content in vendorized keyframe blocks.
+// / @param {string} $name Name.
 @mixin keyframes($name) {
     @-moz-keyframes #{$name} {
         @content;
@@ -435,107 +421,82 @@ $vendor-values: (
         @content;
     }
 }
-
-///
-/// Sets breakpoints.
-/// @param {map} $x Breakpoints.
+// /
+// / Sets breakpoints.
+// / @param {map} $x Breakpoints.
 ///
 @mixin skel-breakpoints($x: ()) {
     $breakpoints: $x !global;
 }
-
-///
-/// Initializes layout module.
-/// @param {map} config Config.
+// /
+// / Initializes layout module.
+// / @param {map} config Config.
 ///
 @mixin skel-layout($config: ()) {
     // Config.
     $configPerBreakpoint: ();
-
     $z: map-get($config, 'breakpoints');
-
     @if $z {
         $configPerBreakpoint: $z;
     }
-
     // Reset.
     $x: map-get($config, 'reset');
-
     @if $x {
         /* Reset */
-
         @include reset($x);
     }
 
     // Box model.
     $x: map-get($config, 'boxModel');
-
     @if $x {
         /* Box Model */
-
         @include boxModel($x);
     }
 
     // Containers.
     $containers: map-get($config, 'containers');
-
     @if $containers {
         /* Containers */
-
         .container {
             margin-left: auto;
             margin-right: auto;
         }
-
         // Use default is $containers is just "true".
         @if $containers == true {
             $containers: 960px;
         }
-
         // Apply base.
         @include containers($containers);
-
         // Apply per-breakpoint.
         @each $name in map-keys($breakpoints) {
             // Get/use breakpoint setting if it exists.
             $x: map-get($configPerBreakpoint, $name);
-
             // Per-breakpoint config exists?
             @if $x {
-                $y: map-get($x, 'containers');
-
-                // Setting exists? Use it.
+                $y: map-get($x, 'containers'); // Setting exists? Use it.
                 @if $y {
                     $containers: $y;
                 }
             }
-
             // Create @media block.
             @media screen and #{map-get($breakpoints, $name)} {
                 @include containers($containers);
             }
         }
     }
-
     // Grid.
     $grid: map-get($config, 'grid');
-
     @if $grid {
-        /* Grid */
-
-        // Use defaults if $grid is just "true".
+        /* Grid */ // Use defaults if $grid is just "true".
         @if $grid == true {
             $grid: ();
         }
-
         // Sub-setting: Gutters.
         $grid-gutters: 40px;
         $x: map-get($grid, 'gutters');
-
         @if $x {
             $grid-gutters: $x;
         }
-
         // Rows.
         .row {
             border-bottom: solid 1px transparent;
@@ -543,14 +504,12 @@ $vendor-values: (
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
-
         .row > * {
             float: left;
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
-
         .row:after,
         .row:before {
             content: '';
@@ -558,41 +517,31 @@ $vendor-values: (
             clear: both;
             height: 0;
         }
-
         .row.uniform > * > :first-child {
             margin-top: 0;
         }
-
         .row.uniform > * > :last-child {
             margin-bottom: 0;
         }
-
         // Gutters (0%).
         @include grid-gutters($grid-gutters, \30 \25, 0);
-
         // Apply base.
         @include grid($grid-gutters);
-
         // Apply per-breakpoint.
         @each $name in map-keys($breakpoints) {
             // Get/use breakpoint setting if it exists.
             $x: map-get($configPerBreakpoint, $name);
-
             // Per-breakpoint config exists?
             @if $x {
-                $y: map-get($x, 'grid');
-
-                // Setting exists?
+                $y: map-get($x, 'grid'); // Setting exists?
                 @if $y {
                     // Sub-setting: Gutters.
                     $x: map-get($y, 'gutters');
-
                     @if $x {
                         $grid-gutters: $x;
                     }
                 }
             }
-
             // Create @media block.
             @media screen and #{map-get($breakpoints, $name)} {
                 @include grid($grid-gutters, $name);
@@ -600,9 +549,8 @@ $vendor-values: (
         }
     }
 }
-
-/// Resets browser styles.
-/// @param {string} $mode Mode (default is 'normalize').
+// / Resets browser styles.
+// / @param {string} $mode Mode (default is 'normalize').
 @mixin reset($mode: 'normalize') {
     @if $mode == 'normalize' {
         // normalize.css v3.0.2 | MIT License | git.io/normalize
@@ -916,17 +864,14 @@ $vendor-values: (
         }
     }
 }
-
-/// Vendorizes a declaration's property and/or value(s).
-/// @param {string} $property Property.
-/// @param {mixed} $value String/list of value(s).
+// / Vendorizes a declaration's property and/or value(s).
+// / @param {string} $property Property.
+// / @param {mixed} $value String/list of value(s).
 @mixin vendor($property, $value) {
     // Determine if property should expand.
     $expandProperty: index($vendor-properties, $property);
-
     // Determine if value should expand (and if so, add '-prefix-' placeholder).
     $expandValue: false;
-
     @each $x in $value {
         @each $y in $vendor-values {
             @if $y == str-slice($x, 1, str-length($y)) {
@@ -935,7 +880,6 @@ $vendor-values: (
             }
         }
     }
-
     // Expand property?
     @if $expandProperty {
         @each $vendor in $vendor-prefixes {
@@ -946,14 +890,12 @@ $vendor-values: (
                 )};
         }
     }
-
     // Expand just the value?
     @elseif $expandValue {
         @each $vendor in $vendor-prefixes {
             #{$property}: #{str-replace-all($value, '-prefix-', $vendor)};
         }
     }
-
     // Neither? Treat them as a normal declaration.
     @else {
         #{$property}: #{$value};

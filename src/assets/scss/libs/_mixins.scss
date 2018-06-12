@@ -347,11 +347,9 @@
                     );
                 }
             }
-
             // Resize gutters (flush).
             @include flexgrid-gutters-flush($columns, $gutters);
         }
-
         // Otherwise ...
         @else {
             // Resize gutters.
