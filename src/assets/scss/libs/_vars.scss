@@ -30,9 +30,9 @@ $font: (
 // Palette.
 $palette: (
     bg: #fff,
-    fg: #a2a2a2,
+    fg: rgba(0, 0, 0, 0.5),
     fg-bold: #787878,
-    fg-light: #b2b2b2,
+    fg-light: rgba(0, 0, 0, 0.5),
     border: #efefef,
     border-bg: #f7f7f7,
     border2: #dfdfdf,
@@ -48,13 +48,13 @@ $palette: (
         border2-bg: rgba(255, 255, 255, 0.2),
     ),
     accent2: (
-        bg: #1f1815,
-        fg: rgba(255, 255, 255, 0.5),
-        fg-bold: #ffffff,
-        fg-light: rgba(255, 255, 255, 0.4),
-        border: rgba(255, 255, 255, 0.25),
-        border-bg: rgba(255, 255, 255, 0.075),
-        border2: rgba(255, 255, 255, 0.5),
-        border2-bg: rgba(255, 255, 255, 0.2),
+        bg: #ffffff,
+        fg: rgba(0, 0, 0, 0.6),
+        fg-bold: rgba(0, 0, 0, 0.95),
+        fg-light: rgba(0, 0, 0, 0.6),
+        border: rgba(0, 0, 0, 0.25),
+        border-bg: rgba(0, 0, 0, 0.075),
+        border2: rgba(0, 0, 0, 0.5),
+        border2-bg: rgba(0, 0, 0, 0.2),
     ),
 );
