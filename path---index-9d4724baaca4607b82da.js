@@ -1,0 +1,2 @@
+webpackJsonp([0x81b8806e4260],{365:function(t,a){t.exports={data:{site:{siteMetadata:{title:"Andy Tran",description:"Andy Tran"}}},pathContext:{}}}});
+//# sourceMappingURL=path---index-9d4724baaca4607b82da.js.map
