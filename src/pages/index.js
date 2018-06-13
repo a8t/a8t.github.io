@@ -124,32 +124,69 @@ class HomeIndex extends React.Component {
                 <div id="main">
                     <section id="one">
                         <header className="major">
-                            <h2>
-                                Ipsum lorem dolor aliquam ante commodo<br />
-                                magna sed accumsan arcu neque.
-                            </h2>
+                            <h2>Things I Care About</h2>
                         </header>
                         <p>
-                            Accumsan orci faucibus id eu lorem semper. Eu ac
-                            iaculis ac nunc nisi lorem vulputate lorem neque
-                            cubilia ac in adipiscing in curae lobortis tortor
-                            primis integer massa adipiscing id nisi accumsan
-                            pellentesque commodo blandit enim arcu non at amet
-                            id arcu magna. Accumsan orci faucibus id eu lorem
-                            semper nunc nisi lorem vulputate lorem neque
-                            cubilia.
+                            I'm web developer. I prefer working a full stack
+                            (with experience handling <strong>Rails</strong> and
+                            <strong> Django</strong> backends), but I'm
+                            especially passionate about building
+                            <strong> responsive</strong>,
+                            <strong> engaging</strong>, and
+                            <strong> accessible interfaces</strong>. I'm a proud
+                            JavaScript nerd, and I've worked with
+                            <strong> PolymerJS</strong>,
+                            <strong> Vue.js</strong>, and
+                            <strong> React</strong>. I refuse to let myself stop
+                            learning, and that's why the web is so awesome to
+                            me—there will never be a shortage of things to
+                            learn.
                         </p>
-                        <ul className="actions">
-                            <li>
-                                <a href="#" className="button">
-                                    Learn More
+                        <p>
+                            I love SVG and animation. I know my way around
+                            Illustrator, and I'm picking up GSAP for animation
+                            on the web. It's an exciting platform that's going
+                            in exciting places!
+                        </p>
+                        <p>
+                            My background is in physics. That was OK, but I much
+                            prefer what I'm doing now with software. Outside of
+                            work, I'm a serial hobbyist. I crochet, sew, fix
+                            bikes, play guitar and lap steel, rock at Tetris,
+                            and love cryptic crosswords. You could say that I'm
+                            a jack of many trades, but mostly
+                            <strong> I'm just terrified of being bored</strong>.
+                        </p>
+                        <p>
+                            <a
+                                target="_blank"
+                                href="https://photos.google.com/share/AF1QipM3JLFmxKJLNmuZuQHjt7LpUI7ZbVATlwnjx7DFpTOOkKW7pHdklVxvi8-uzUM4fg?key=bTVWTWNpTGExdXFoVy14cjZiZ21iUm5ELVZfMFpn"
+                            >
+                                Here are some photos of my dog
                                 </a>
-                            </li>
-                        </ul>
+                            . His name is Scrappy and he's a 16-year-old bichon.
+                            What a little cutie.
+                        </p>
+                        <p>
+                            And finally,{' '}
+                            <a
+                                target="_blank"
+                                href="https://drive.google.com/file/d/1HCQ63qxR0ZSxvODmlM-1i_WbTwgy9i2_/view"
+                            >
+                                here's a copy of my resume
+                            </a>. Right now I'm open to hearing about freelance,
+                            contract, and full-time work in Toronto. Thanks for
+                            reading.
+                        </p>
                     </section>
 
                     <section id="two">
-                        <h2>Recent Work</h2>
+                        <h2>Projects</h2>
+
+                        <p>
+                            Here's some stuff I've put together that I'm fond
+                            of.
+                        </p>
 
                         <Gallery
                             images={DEFAULT_IMAGES.map(
@@ -167,23 +204,14 @@ class HomeIndex extends React.Component {
                                 })
                             )}
                         />
-
-                        <ul className="actions">
-                            <li>
-                                <a href="#" className="button">
-                                    Full Portfolio
-                                </a>
-                            </li>
-                        </ul>
                     </section>
 
                     <section id="three">
-                        <h2>Get In Touch</h2>
+                        <h2>Get In Touch!</h2>
                         <p>
-                            Accumsan pellentesque commodo blandit enim arcu non
-                            at amet id arcu magna. Accumsan orci faucibus id eu
-                            lorem semper nunc nisi lorem vulputate lorem neque
-                            lorem ipsum dolor.
+                            I'd love to hear from you. You can reach me either
+                            via the form below or via the social media links.
+                            I'll definitely get back to you ASAP!
                         </p>
                         <div className="row">
                             <div className="8u 12u$(small)">
