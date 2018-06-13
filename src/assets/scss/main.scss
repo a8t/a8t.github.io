@@ -254,6 +254,9 @@ header {
 
 form {
     margin: 0 0 _size(element-margin) 0;
+    .form-submit {
+        margin-top: 20px;
+    }
 }
 
 label {
@@ -653,6 +656,16 @@ ul {
             margin: 1.5em 0 0 0;
             padding-left: 2.25em;
             position: relative;
+            .icon {
+                @include vendor(
+                    'transition',
+                    ('color #{_duration(transition)} ease-in-out')
+                );
+            }
+            &:hover .icon,
+            &:hover a {
+                color: _palette(accent1, bg);
+            }
             &:first-child {
                 margin-top: 0;
             }
@@ -844,6 +857,10 @@ input[type='button'],
     @include vendor('align-items', 'flex-end');
     @include vendor('justify-content', 'space-between');
     background-color: _palette(accent2, bg);
+    background-image: url('images/bg.jpg');
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: _palette(accent2, fg);
     height: 100%;
     left: 0;
@@ -859,10 +876,14 @@ input[type='button'],
     > .inner {
         @include vendor('flex-grow', '1');
         margin: 0 0 ($size-header-pad * 0.5) 0;
+        .hat {
+            width: 80px;
+        }
     }
     strong,
     b {
         color: _palette(accent2, fg-bold);
+        font-size: xx-large;
     }
     h2,
     h3,
@@ -876,6 +897,8 @@ input[type='button'],
         font-size: 1.35em;
         line-height: 1.75em;
         margin: 0;
+        max-width: 15em;
+        margin-left: auto;
     }
     .image.avatar {
         margin: 0 0 (_size(element-margin) * 0.5) 0;
@@ -886,6 +909,7 @@ input[type='button'],
 /* Footer */
 
 #footer {
+    margin-bottom: 150px;
     .icons {
         margin: (_size(element-margin) * 0.5) 0 0 0;
         a {
@@ -933,6 +957,9 @@ input[type='button'],
             margin-top: 0;
             padding-top: 0;
         }
+    }
+    strong {
+        color: #333;
     }
 }
 
@@ -1119,12 +1146,12 @@ body.is-touch {
     $size-header-pad: 3em;
     /* Header */
     #header {
-        height: calc(100% - 40px);
-        margin: 20px 0 20px 20px;
         padding: ($size-header-pad * 2) $size-header-pad $size-header-pad
             $size-header-pad;
         width: $size-header-width;
         h1 {
+            max-width: initial;
+            margin-left: 0;
             font-size: 1.25em;
             br {
                 display: none;
@@ -1181,8 +1208,8 @@ body.is-touch {
     /* Header */
     #header {
         background-attachment: scroll;
-        background-position: top left, center center;
-        background-size: auto, cover;
+        background-position: center bottom;
+        background-size: cover;
         left: auto;
         padding: ($size-header-pad * 1.5) $size-header-pad;
         position: relative;
@@ -1192,6 +1219,7 @@ body.is-touch {
         display: block;
         height: initial;
         margin: 0;
+        border: none;
         h1 {
             font-size: 1.75em;
             br {
@@ -1201,6 +1229,7 @@ body.is-touch {
     }
     /* Footer */
     #footer {
+        margin-bottom: 0;
         bottom: auto;
         left: auto;
         padding: $size-header-pad $size-header-pad ($size-header-pad * 1.5)
@@ -1279,6 +1308,7 @@ body.is-touch {
     /* Footer */
     #footer {
         padding: ($size-header-pad * 1.5) $size-header-pad;
+        margin-bottom: 20px;
     }
     /* Main */
     #main {
