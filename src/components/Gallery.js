@@ -69,6 +69,12 @@ class Gallery extends Component {
 
                     <h3>{obj.caption}</h3>
                     <p>{obj.description}</p>
+                    <p style={{ marginTop: '10px' }}>
+                        See it live{' '}
+                        <a href={obj.link} target="_blank">
+                            here
+                        </a>.
+                    </p>
                 </article>
             )
         })

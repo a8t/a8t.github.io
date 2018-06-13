@@ -13,55 +13,51 @@ import thumb04 from '../assets/images/thumbs/04.jpg'
 import thumb05 from '../assets/images/thumbs/05.jpg'
 import thumb06 from '../assets/images/thumbs/06.jpg'
 
-import full01 from '../assets/images/fulls/01.jpg'
-import full02 from '../assets/images/fulls/02.jpg'
-import full03 from '../assets/images/fulls/03.jpg'
-import full04 from '../assets/images/fulls/04.jpg'
+import timetablr from '../assets/images/fulls/timetablr.png'
+import userstories from '../assets/images/fulls/userstories.png'
+import tuner from '../assets/images/fulls/tuner.png'
+import kamalayan from '../assets/images/fulls/kamalayan.png'
 import full05 from '../assets/images/fulls/05.jpg'
 import full06 from '../assets/images/fulls/06.jpg'
 
 const DEFAULT_IMAGES = [
     {
         id: '1',
-        src: full01,
-        thumbnail: thumb01,
-        caption: 'Photo 1',
-        description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+        src: timetablr,
+        thumbnail: timetablr,
+        caption: 'Timetablr',
+        description: `An unpleasant part of each school term is scheduling courses.
+            Timetablr takes some of the headache away with a fun, intuitive interface.`,
+        link: 'https://andytran.at/timetablr',
     },
     {
         id: '2',
-        src: full02,
-        thumbnail: thumb02,
-        caption: 'Photo 2',
-        description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+        src: userstories,
+        thumbnail: userstories,
+        caption: 'User Stories',
+        description: `We needed a tool to organize our thoughts while
+                building Timetablr, so I put together a simple drag-and-drop app for
+                adding and sorting feature ideas. Every user has a story!`,
+        link: 'https://user-story-app.herokuapp.com/#/',
     },
     {
         id: '3',
-        src: full03,
-        thumbnail: thumb03,
-        caption: 'Photo 3',
-        description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+        src: tuner,
+        thumbnail: tuner,
+        caption: 'WebTuner',
+        description: `Guitar tuner apps often lack a convenience factor, requiring plugins or
+                installation. I leveraged native web audio APIs to create a simple
+                but sturdy tuner that works out of the box.`,
+        link: 'https://andytran.at/guitar-tuner/#/',
     },
     {
         id: '4',
-        src: full04,
-        thumbnail: thumb04,
-        caption: 'Photo 4',
-        description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
-    },
-    {
-        id: '5',
-        src: full05,
-        thumbnail: thumb05,
-        caption: 'Photo 5',
-        description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
-    },
-    {
-        id: '6',
-        src: full06,
-        thumbnail: thumb06,
-        caption: 'Photo 6',
-        description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+        src: kamalayan,
+        thumbnail: kamalayan,
+        caption: 'Kamalayan',
+        description: `Kamalayan is a Filipino youth media collective in Toronto.
+                I rebuilt their website (including a CMS for the blog) using GatsbyJS.`,
+        link: 'https://kamalayan.ca',
     },
 ]
 
@@ -163,7 +159,7 @@ class HomeIndex extends React.Component {
                                 href="https://photos.google.com/share/AF1QipM3JLFmxKJLNmuZuQHjt7LpUI7ZbVATlwnjx7DFpTOOkKW7pHdklVxvi8-uzUM4fg?key=bTVWTWNpTGExdXFoVy14cjZiZ21iUm5ELVZfMFpn"
                             >
                                 Here are some photos of my dog
-                                </a>
+                            </a>
                             . His name is Scrappy and he's a 16-year-old bichon.
                             What a little cutie.
                         </p>
@@ -196,11 +192,13 @@ class HomeIndex extends React.Component {
                                     thumbnail,
                                     caption,
                                     description,
+                                    link,
                                 }) => ({
                                     src,
                                     thumbnail,
                                     caption,
                                     description,
+                                    link,
                                 })
                             )}
                         />
@@ -245,11 +243,11 @@ class HomeIndex extends React.Component {
                                             />
                                         </div>
                                     </div>
-                                        <input
+                                    <input
                                         className="form-submit"
-                                            type="submit"
-                                            value="Send Message"
-                                        />
+                                        type="submit"
+                                        value="Send Message"
+                                    />
                                 </form>
                             </div>
                             <div className="4u 12u$(small)">
@@ -273,10 +271,10 @@ class HomeIndex extends React.Component {
                                             target="_blank"
                                         >
                                             <h3 className="icon fa-github">
-                                            <span className="label">
+                                                <span className="label">
                                                     Github
-                                            </span>
-                                        </h3>
+                                                </span>
+                                            </h3>
                                             a8t
                                         </a>
                                     </li>
@@ -289,17 +287,17 @@ class HomeIndex extends React.Component {
                                                 <span className="label">
                                                     CodePen
                                                 </span>
-                                        </h3>
+                                            </h3>
                                             a8t
                                         </a>
                                     </li>
                                     <li>
                                         <a href="mailto:me@andytran.at">
-                                        <h3 className="icon fa-envelope-o">
+                                            <h3 className="icon fa-envelope-o">
                                                 <span className="label">
                                                     Email
                                                 </span>
-                                        </h3>
+                                            </h3>
                                             me@andytran.at
                                         </a>
                                     </li>
