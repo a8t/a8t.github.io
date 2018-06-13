@@ -7,30 +7,47 @@ class Footer extends React.Component {
                 <div className="inner">
                     <ul className="icons">
                         <li>
-                            <a href="#" className="icon fa-twitter">
-                                <span className="label">Twitter</span>
+                            <a
+                                href="https://www.linkedin.com/in/andy8tran"
+                                target="_blank"
+                                className="icon fa-linkedin-square"
+                            >
+                                <span className="label">LinkedIn</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="icon fa-github">
+                            <a
+                                href="https://github.com/a8t"
+                                target="_blank"
+                                className="icon fa-github"
+                            >
                                 <span className="label">Github</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="icon fa-dribbble">
-                                <span className="label">Dribbble</span>
+                            <a
+                                href="https://codepen.io/a8t/pens/public/"
+                                target="_blank"
+                                className="icon fa-codepen"
+                            >
+                                <span className="label">CodePen</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="icon fa-envelope-o">
+                            <a
+                                href="mailto:me@andytran.at"
+                                className="icon fa-envelope-o"
+                            >
                                 <span className="label">Email</span>
                             </a>
                         </li>
                     </ul>
                     <ul className="copyright">
-                        <li>&copy; Gatsby Starter Strata</li>
                         <li>
-                            Design: <a href="http://html5up.net">HTML5 UP</a>
+                            Made with &hearts; using{' '}
+                            <a href="https://www.gatsbyjs.org/" target="_blank">
+                                GatsbyJS
+                            </a>
                         </li>
                     </ul>
                 </div>

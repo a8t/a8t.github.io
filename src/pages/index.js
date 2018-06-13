@@ -187,7 +187,10 @@ class HomeIndex extends React.Component {
                         </p>
                         <div className="row">
                             <div className="8u 12u$(small)">
-                                <form method="post" action="#">
+                                <form
+                                    method="post"
+                                    action="https://formspree.io/me@andytran.at"
+                                >
                                     <div className="row uniform 50%">
                                         <div className="6u 12u$(xsmall)">
                                             <input
@@ -214,39 +217,63 @@ class HomeIndex extends React.Component {
                                             />
                                         </div>
                                     </div>
-                                </form>
-                                <ul className="actions">
-                                    <li>
                                         <input
+                                        className="form-submit"
                                             type="submit"
                                             value="Send Message"
                                         />
-                                    </li>
-                                </ul>
+                                </form>
                             </div>
                             <div className="4u 12u$(small)">
                                 <ul className="labeled-icons">
                                     <li>
-                                        <h3 className="icon fa-home">
+                                        <a
+                                            href="https://www.linkedin.com/in/andy8tran"
+                                            target="_blank"
+                                        >
+                                            <h3 className="icon fa-linkedin-square">
+                                                <span className="label">
+                                                    LinkedIn
+                                                </span>
+                                            </h3>
+                                            andy8tran
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://github.com/a8t"
+                                            target="_blank"
+                                        >
+                                            <h3 className="icon fa-github">
                                             <span className="label">
-                                                Address
+                                                    Github
                                             </span>
                                         </h3>
-                                        1234 Somewhere Rd.<br />
-                                        Nashville, TN 00000<br />
-                                        United States
+                                            a8t
+                                        </a>
                                     </li>
                                     <li>
-                                        <h3 className="icon fa-mobile">
-                                            <span className="label">Phone</span>
+                                        <a
+                                            href="https://codepen.io/a8t/pens/public/"
+                                            target="_blank"
+                                        >
+                                            <h3 className="icon fa-codepen">
+                                                <span className="label">
+                                                    CodePen
+                                                </span>
                                         </h3>
-                                        000-000-0000
+                                            a8t
+                                        </a>
                                     </li>
                                     <li>
+                                        <a href="mailto:me@andytran.at">
                                         <h3 className="icon fa-envelope-o">
-                                            <span className="label">Email</span>
+                                                <span className="label">
+                                                    Email
+                                                </span>
                                         </h3>
-                                        <a href="#">hello@untitled.tld</a>
+                                            me@andytran.at
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
