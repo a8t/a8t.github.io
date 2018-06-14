@@ -38,7 +38,7 @@ const DEFAULT_IMAGES = [
         description: `Guitar tuner apps often lack a convenience factor, requiring plugins or
                 installation. I leveraged native web audio APIs to create a simple
                 but sturdy tuner that works out of the box.`,
-        link: 'https://andytran.at/guitar-tuner/#/',
+        link: 'https://festive-wright-1b14cc.netlify.com/#/',
     },
     {
         id: '3',
@@ -47,7 +47,7 @@ const DEFAULT_IMAGES = [
         caption: 'Timetablr',
         description: `An unpleasant part of each school term is scheduling courses.
             Timetablr takes some of the headache away with a fun, intuitive interface.`,
-        link: 'https://andytran.at/timetablr',
+        link: 'https://nervous-lovelace-d6d571.netlify.com/',
     },
     {
         id: '4',
@@ -57,7 +57,7 @@ const DEFAULT_IMAGES = [
         description: `We needed a tool to organize our thoughts while
                 building Timetablr, so I put together a simple drag-and-drop app for
                 adding and sorting feature ideas. Every user has a story!`,
-        link: 'https://user-story-app.herokuapp.com/#/',
+        link: 'https://pedantic-ptolemy-f4e64c.netlify.com/#/',
     },
 ]
 
