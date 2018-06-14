@@ -178,8 +178,8 @@ class HomeIndex extends React.Component {
                         <h2>Projects</h2>
 
                         <p>
-                            Here's some projects I've put together that I'm fond
-                            of.
+                            Here are some projects I've put together that I'm
+                            fond of.
                         </p>
 
                         <Gallery
