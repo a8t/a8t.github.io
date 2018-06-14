@@ -109,7 +109,7 @@ class HomeIndex extends React.Component {
                     <meta property="og:title" content="Andy Tran" />
                     <meta
                         property="og:image"
-                        content="http://ia.media-imdb.com/images/rock.jpg"
+                        content="https://i.imgur.com/LHWTvgj.jpg"
                     />
                 </Helmet>
 
