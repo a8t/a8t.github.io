@@ -23,25 +23,15 @@ import full06 from '../assets/images/fulls/06.jpg'
 const DEFAULT_IMAGES = [
     {
         id: '1',
-        src: timetablr,
-        thumbnail: timetablr,
-        caption: 'Timetablr',
-        description: `An unpleasant part of each school term is scheduling courses.
-            Timetablr takes some of the headache away with a fun, intuitive interface.`,
-        link: 'https://andytran.at/timetablr',
+        src: kamalayan,
+        thumbnail: kamalayan,
+        caption: 'Kamalayan',
+        description: `Kamalayan is a Filipino youth media collective in Toronto.
+                I rebuilt their website (including a CMS for the blog) using GatsbyJS.`,
+        link: 'https://kamalayan.ca',
     },
     {
         id: '2',
-        src: userstories,
-        thumbnail: userstories,
-        caption: 'User Stories',
-        description: `We needed a tool to organize our thoughts while
-                building Timetablr, so I put together a simple drag-and-drop app for
-                adding and sorting feature ideas. Every user has a story!`,
-        link: 'https://user-story-app.herokuapp.com/#/',
-    },
-    {
-        id: '3',
         src: tuner,
         thumbnail: tuner,
         caption: 'WebTuner',
@@ -51,13 +41,23 @@ const DEFAULT_IMAGES = [
         link: 'https://andytran.at/guitar-tuner/#/',
     },
     {
+        id: '3',
+        src: timetablr,
+        thumbnail: timetablr,
+        caption: 'Timetablr',
+        description: `An unpleasant part of each school term is scheduling courses.
+            Timetablr takes some of the headache away with a fun, intuitive interface.`,
+        link: 'https://andytran.at/timetablr',
+    },
+    {
         id: '4',
-        src: kamalayan,
-        thumbnail: kamalayan,
-        caption: 'Kamalayan',
-        description: `Kamalayan is a Filipino youth media collective in Toronto.
-                I rebuilt their website (including a CMS for the blog) using GatsbyJS.`,
-        link: 'https://kamalayan.ca',
+        src: userstories,
+        thumbnail: userstories,
+        caption: 'User Stories',
+        description: `We needed a tool to organize our thoughts while
+                building Timetablr, so I put together a simple drag-and-drop app for
+                adding and sorting feature ideas. Every user has a story!`,
+        link: 'https://user-story-app.herokuapp.com/#/',
     },
 ]
 
