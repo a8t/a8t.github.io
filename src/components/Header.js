@@ -9,12 +9,11 @@ class Header extends React.Component {
             <header id="header">
                 <div className="inner">
                     <img src={avatar} alt="hat logo" className="hat" />
-                    <h1>
+                    <h1 style={{ display: 'block' }}>
                         <strong>I'm Andy.</strong>
                         <p>
-                            I'm a software developer, <br /> former bike
-                            mechanic,
-                            <br /> and recovering physicist.
+                            I'm a software developer, <br />
+                            bike mechanic, and <br />recovering physicist.
                         </p>
                     </h1>
                 </div>
