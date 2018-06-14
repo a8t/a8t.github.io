@@ -152,6 +152,7 @@ class HomeIndex extends React.Component {
                         <p>
                             <a
                                 target="_blank"
+                                rel="noopener"
                                 href="https://photos.google.com/share/AF1QipM3JLFmxKJLNmuZuQHjt7LpUI7ZbVATlwnjx7DFpTOOkKW7pHdklVxvi8-uzUM4fg?key=bTVWTWNpTGExdXFoVy14cjZiZ21iUm5ELVZfMFpn"
                             >
                                 Here are some photos of my dog
@@ -163,6 +164,7 @@ class HomeIndex extends React.Component {
                             And finally,{' '}
                             <a
                                 target="_blank"
+                                rel="noopener"
                                 href="https://drive.google.com/file/d/1HCQ63qxR0ZSxvODmlM-1i_WbTwgy9i2_/view"
                             >
                                 here's a copy of my resume
@@ -176,7 +178,7 @@ class HomeIndex extends React.Component {
                         <h2>Projects</h2>
 
                         <p>
-                            Here's some stuff I've put together that I'm fond
+                            Here's some projects I've put together that I'm fond
                             of.
                         </p>
 
@@ -252,6 +254,7 @@ class HomeIndex extends React.Component {
                                         <a
                                             href="https://www.linkedin.com/in/andy8tran"
                                             target="_blank"
+                                            rel="noopener"
                                         >
                                             <h3 className="icon fa-linkedin-square">
                                                 <span className="label">
@@ -265,6 +268,7 @@ class HomeIndex extends React.Component {
                                         <a
                                             href="https://github.com/a8t"
                                             target="_blank"
+                                            rel="noopener"
                                         >
                                             <h3 className="icon fa-github">
                                                 <span className="label">
@@ -278,6 +282,7 @@ class HomeIndex extends React.Component {
                                         <a
                                             href="https://codepen.io/a8t/pens/public/"
                                             target="_blank"
+                                            rel="noopener"
                                         >
                                             <h3 className="icon fa-codepen">
                                                 <span className="label">

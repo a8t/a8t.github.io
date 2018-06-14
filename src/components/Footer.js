@@ -10,6 +10,7 @@ class Footer extends React.Component {
                             <a
                                 href="https://www.linkedin.com/in/andy8tran"
                                 target="_blank"
+                                rel="noopener"
                                 className="icon fa-linkedin-square"
                             >
                                 <span className="label">LinkedIn</span>
@@ -19,6 +20,7 @@ class Footer extends React.Component {
                             <a
                                 href="https://github.com/a8t"
                                 target="_blank"
+                                rel="noopener"
                                 className="icon fa-github"
                             >
                                 <span className="label">Github</span>
@@ -28,6 +30,7 @@ class Footer extends React.Component {
                             <a
                                 href="https://codepen.io/a8t/pens/public/"
                                 target="_blank"
+                                rel="noopener"
                                 className="icon fa-codepen"
                             >
                                 <span className="label">CodePen</span>
@@ -45,7 +48,11 @@ class Footer extends React.Component {
                     <ul className="copyright">
                         <li>
                             Made with &hearts; using{' '}
-                            <a href="https://www.gatsbyjs.org/" target="_blank">
+                            <a
+                                href="https://www.gatsbyjs.org/"
+                                target="_blank"
+                                rel="noopener"
+                            >
                                 GatsbyJS
                             </a>
                         </li>
