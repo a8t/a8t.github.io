@@ -6,19 +6,10 @@ import Helmet from 'react-helmet'
 // import Lightbox from 'react-images'
 import Gallery from '../components/Gallery'
 
-import thumb01 from '../assets/images/thumbs/01.jpg'
-import thumb02 from '../assets/images/thumbs/02.jpg'
-import thumb03 from '../assets/images/thumbs/03.jpg'
-import thumb04 from '../assets/images/thumbs/04.jpg'
-import thumb05 from '../assets/images/thumbs/05.jpg'
-import thumb06 from '../assets/images/thumbs/06.jpg'
-
-import timetablr from '../assets/images/fulls/timetablr.png'
-import userstories from '../assets/images/fulls/userstories.png'
-import tuner from '../assets/images/fulls/tuner.png'
-import kamalayan from '../assets/images/fulls/kamalayan.png'
-import full05 from '../assets/images/fulls/05.jpg'
-import full06 from '../assets/images/fulls/06.jpg'
+import timetablr from '../assets/images/fulls/timetablr.jpg'
+import userstories from '../assets/images/fulls/userstories.jpg'
+import tuner from '../assets/images/fulls/tuner.jpg'
+import kamalayan from '../assets/images/fulls/kamalayan.jpg'
 
 const DEFAULT_IMAGES = [
     {
@@ -115,6 +106,11 @@ class HomeIndex extends React.Component {
                 <Helmet>
                     <title>{siteTitle}</title>
                     <meta name="description" content={siteDescription} />
+                    <meta property="og:title" content="Andy Tran" />
+                    <meta
+                        property="og:image"
+                        content="http://ia.media-imdb.com/images/rock.jpg"
+                    />
                 </Helmet>
 
                 <div id="main">
