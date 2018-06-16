@@ -1,0 +1,53 @@
+{
+    "misc": {
+        "zIndexBase": 10000
+    },
+
+    "duration": {
+        "transition": "0.2s"
+    },
+
+    "size": {
+        "borderRadius": "0.35em",
+        "elementHeight": "2.75em",
+        "elementMargin": "2em"
+    },
+
+    "font": {
+        "family": "'Source Sans Pro', Helvetica, sans-serif, ",
+        "familyFixed": "'Courier New', monospace",
+        "weight": 400,
+        "weightBold": 400
+    },
+
+    "palette": {
+        "bg": "#fff",
+        "fg": "rgba(0, 0, 0, 0.5)",
+        "fgBold": "#787878",
+        "fgLight": "rgba(0, 0, 0, 0.5)",
+        "border": "#efefef",
+        "borderBg": "#f7f7f7",
+        "border2": "#dfdfdf",
+        "border2Bg": "#e7e7e7",
+        "accent1": {
+            "bg": "#49bf9d",
+            "fg": "mix(#49bf9d, #ffffff, 25%)",
+            "fgBold": "#ffffff",
+            "fgLight": "mix(#49bf9d, #ffffff, 40%)",
+            "border": "rgba(255, 255, 255, 0.25)",
+            "borderBg": "rgba(255, 255, 255, 0.075)",
+            "border2": "rgba(255, 255, 255, 0.5)",
+            "border2Bg": "rgba(255, 255, 255, 0.2)"
+        },
+        "accent2": {
+            "bg": "#ffffff",
+            "fg": "rgba(0, 0, 0, 0.6)",
+            "fgBold": "rgba(0, 0, 0, 0.95)",
+            "fgLight": "rgba(0, 0, 0, 0.6)",
+            "border": "rgba(0, 0, 0, 0.25)",
+            "borderBg": "rgba(0, 0, 0, 0.075)",
+            "border2": "rgba(0, 0, 0, 0.5)",
+            "border2Bg": "rgba(0, 0, 0, 0.2)"
+        }
+    }
+}
