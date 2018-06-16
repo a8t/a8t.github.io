@@ -1,9 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 
-// import Lightbox from 'react-images'
 import Gallery from '../components/Gallery'
 import Tech from '../components/Tech'
 import { tech } from '../assets/vars.json'
@@ -12,6 +10,12 @@ import timetablr from '../assets/images/fulls/timetablr.jpg'
 import userstories from '../assets/images/fulls/userstories.jpg'
 import tuner from '../assets/images/fulls/tuner.jpg'
 import kamalayan from '../assets/images/fulls/kamalayan.jpg'
+
+const TechContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+`
 
 const DEFAULT_IMAGES = [
     {
@@ -27,7 +31,7 @@ const DEFAULT_IMAGES = [
         techStack: [
             { name: 'React', type: tech.frontend },
             { name: 'SCSS', type: tech.frontend },
-            { name: 'NetlifyCMS', type: tech.backend },
+            { name: 'Netlify', type: tech.backend },
         ],
     },
     {
@@ -79,50 +83,6 @@ const DEFAULT_IMAGES = [
 ]
 
 class HomeIndex extends React.Component {
-    constructor() {
-        super()
-
-        this.state = {
-            lightboxIsOpen: false,
-            currentImage: 0,
-        }
-
-        this.closeLightbox = this.closeLightbox.bind(this)
-        this.gotoNext = this.gotoNext.bind(this)
-        this.gotoPrevious = this.gotoPrevious.bind(this)
-        this.openLightbox = this.openLightbox.bind(this)
-        this.handleClickImage = this.handleClickImage.bind(this)
-    }
-
-    openLightbox(index, event) {
-        event.preventDefault()
-        this.setState({
-            currentImage: index,
-            lightboxIsOpen: true,
-        })
-    }
-    closeLightbox() {
-        this.setState({
-            currentImage: 0,
-            lightboxIsOpen: false,
-        })
-    }
-    gotoPrevious() {
-        this.setState({
-            currentImage: this.state.currentImage - 1,
-        })
-    }
-    gotoNext() {
-        this.setState({
-            currentImage: this.state.currentImage + 1,
-        })
-    }
-    handleClickImage() {
-        if (this.state.currentImage === this.props.images.length - 1) return
-
-        this.gotoNext()
-    }
-
     render() {
         const siteTitle = this.props.data.site.siteMetadata.title
         const siteDescription = this.props.data.site.siteMetadata.description
@@ -208,12 +168,12 @@ class HomeIndex extends React.Component {
                             fond of. All projects have live demos and the
                             codebases are available on GitHub!
                         </p>
-                        <div>Legend:</div>
-                        <p>
-                            <Tech color={tech.frontend}>Front-End</Tech>
-                            <Tech color={tech.backend}>Back-End</Tech>
-                            <Tech color={tech.misc}>Miscellaneous</Tech>
-                        </p>
+                        <div>Technologies used legend:</div>
+                        <TechContainer>
+                            <Tech type={tech.frontend}>Frontend</Tech>
+                            <Tech type={tech.backend}>Backend</Tech>
+                            <Tech type={tech.misc}>Misc</Tech>
+                        </TechContainer>
 
                         <Gallery images={[...DEFAULT_IMAGES]} />
                     </section>
