@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { size, duration, font } from '../assets/vars.json'
+import { size, duration, font, tech } from '../assets/vars.json'
 import overlay from '../assets/scss/images/overlay.png'
+
+import Tech from './Tech.js'
 
 const LinkContainer = styled.p`
     margin: 0;
@@ -21,13 +23,6 @@ const Link = styled.a`
             top: 4px;
         }
     }
-`
-
-const Tech = styled.span`
-    background: rgba(0, 0, 0, 0.15);
-    padding: 5px 15px;
-    margin-right: 10px;
-    border-radius: 5px;
 `
 
 const GalleryItemArticle = styled.article`
@@ -124,7 +119,9 @@ const TitleLinkContainer = styled.div`
 const GalleryItem = props => {
     const { obj, index, handleOpenImage } = props
     const techStackBubbles = obj.techStack.map(eachTech => (
-        <Tech key={eachTech}>{eachTech}</Tech>
+        <Tech key={eachTech.name} color={eachTech.type}>
+            {eachTech.name}
+        </Tech>
     ))
     return (
         <GalleryItemArticle>

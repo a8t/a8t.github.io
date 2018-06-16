@@ -5,6 +5,8 @@ import Helmet from 'react-helmet'
 
 // import Lightbox from 'react-images'
 import Gallery from '../components/Gallery'
+import Tech from '../components/Tech'
+import { tech } from '../assets/vars.json'
 
 import timetablr from '../assets/images/fulls/timetablr.jpg'
 import userstories from '../assets/images/fulls/userstories.jpg'
@@ -22,7 +24,11 @@ const DEFAULT_IMAGES = [
                 to help promote their new summer 2018 Midya Project.`,
         demoLink: 'https://kamalayan.ca',
         repoLink: 'https://github.com/a8t/kamalayan/',
-        techStack: ['React', 'SCSS', 'NetlifyCMS'],
+        techStack: [
+            { name: 'React', type: tech.frontend },
+            { name: 'SCSS', type: tech.frontend },
+            { name: 'NetlifyCMS', type: tech.backend },
+        ],
     },
     {
         id: '2',
@@ -34,7 +40,10 @@ const DEFAULT_IMAGES = [
                 but sturdy tuner that works out of the box.`,
         demoLink: 'https://andytran.at/guitar-tuner',
         repoLink: 'https://github.com/a8t/guitar-tuner/',
-        techStack: ['VueJS', 'Web Audio API'],
+        techStack: [
+            { name: 'VueJS', type: tech.frontend },
+            { name: 'Web Audio API', type: tech.misc },
+        ],
     },
     {
         id: '3',
@@ -47,7 +56,10 @@ const DEFAULT_IMAGES = [
             `,
         demoLink: 'https://andytran.at/timetablr',
         repoLink: 'https://github.com/a8t/timetablr',
-        techStack: ['React', 'Ruby on Rails'],
+        techStack: [
+            { name: 'React', type: tech.frontend },
+            { name: 'Ruby on Rails', type: tech.backend },
+        ],
     },
     {
         id: '4',
@@ -59,7 +71,10 @@ const DEFAULT_IMAGES = [
                 adding and sorting feature ideas. Every user has a story!`,
         demoLink: 'https://andytran.at/user-stories',
         repoLink: 'https://github.com/a8t/user-stories',
-        techStack: ['VueJS', 'Firebase'],
+        techStack: [
+            { name: 'VueJS', type: tech.frontend },
+            { name: 'Firebase', type: tech.backend },
+        ],
     },
 ]
 
@@ -190,7 +205,14 @@ class HomeIndex extends React.Component {
 
                         <p>
                             Here are some projects I've put together that I'm
-                            fond of.
+                            fond of. All projects have live demos and the
+                            codebases are available on GitHub!
+                        </p>
+                        <div>Legend:</div>
+                        <p>
+                            <Tech color={tech.frontend}>Front-End</Tech>
+                            <Tech color={tech.backend}>Back-End</Tech>
+                            <Tech color={tech.misc}>Miscellaneous</Tech>
                         </p>
 
                         <Gallery images={[...DEFAULT_IMAGES]} />
