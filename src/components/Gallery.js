@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Lightbox from 'react-images'
+import GalleryItem from './GalleryItem'
+import styled from 'styled-components'
 
+const GalleryContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media screen and (max-width: 862px) {
+        flex-direction: column;
+    }
+`
 class Gallery extends Component {
     constructor() {
         super()
@@ -58,33 +68,21 @@ class Gallery extends Component {
 
         const gallery = images.map((obj, i) => {
             return (
-                <article className="6u 12u$(xsmall) work-item" key={i}>
-                    <a
-                        className="image fit thumb"
-                        href={obj.src}
-                        onClick={e => this.openLightbox(i, e)}
-                    >
-                        <img src={obj.thumbnail} alt={obj.caption} />
-                    </a>
-
-                    <h3>{obj.caption}</h3>
-                    <p>{obj.description}</p>
-                    <p style={{ marginTop: '10px' }}>
-                        See it live{' '}
-                        <a href={obj.link} target="_blank">
-                            here
-                        </a>.
-                    </p>
-                </article>
+                <GalleryItem
+                    obj={obj}
+                    handleOpenImage={this.openLightbox}
+                    index={i}
+                    key={i}
+                />
             )
         })
 
-        return <div className="row">{gallery}</div>
+        return gallery
     }
     render() {
         return (
             <div>
-                {this.renderGallery()}
+                <GalleryContainer>{this.renderGallery()}</GalleryContainer>
                 <Lightbox
                     currentImage={this.state.currentImage}
                     images={this.props.images}
