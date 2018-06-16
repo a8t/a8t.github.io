@@ -116,10 +116,15 @@ const TitleLinkContainer = styled.div`
     align-items: center;
 `
 
+const TechContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
+
 const GalleryItem = props => {
     const { obj, index, handleOpenImage } = props
     const techStackBubbles = obj.techStack.map(eachTech => (
-        <Tech key={eachTech.name} color={eachTech.type}>
+        <Tech key={eachTech.name} type={eachTech.type}>
             {eachTech.name}
         </Tech>
     ))
@@ -134,16 +139,16 @@ const GalleryItem = props => {
             <TitleLinkContainer>
                 <ItemTitle>{obj.caption}</ItemTitle>
                 <LinkContainer>
-                    <Link href={obj.demoLink} target="_blank">
+                    <Link href={obj.demoLink} target="_blank" rel="noopener">
                         Demo
                     </Link>
-                    <Link href={obj.repoLink} target="_blank">
+                    <Link href={obj.repoLink} target="_blank" rel="noopener">
                         Code
                     </Link>
                 </LinkContainer>
             </TitleLinkContainer>
             <ItemDescription>{obj.description}</ItemDescription>
-            {techStackBubbles}
+            <TechContainer>{techStackBubbles}</TechContainer>
         </GalleryItemArticle>
     )
 }
