@@ -200,7 +200,7 @@ class HomeIndex extends React.Component {
                         </p>
                     </section>
 
-                    <section id="two">
+                    <section id="projects">
                         <h2>Projects</h2>
 
                         <p>
