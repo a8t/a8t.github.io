@@ -51,8 +51,15 @@
         }
     },
     "tech": {
-        "frontend": "lightblue",
-        "backend": "lightpink",
-        "misc": "lightsalmon"
+        "frontend": "frontend",
+        "backend": "backend",
+        "misc": "misc"
+    },
+    "breakpoints": {
+        "xlarge": "1800px",
+        "large": "1280px",
+        "medium": "980px",
+        "small": "736px",
+        "xsmall": "480px"
     }
 }
