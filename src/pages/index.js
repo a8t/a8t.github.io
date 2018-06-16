@@ -18,8 +18,11 @@ const DEFAULT_IMAGES = [
         thumbnail: kamalayan,
         caption: 'Kamalayan',
         description: `Kamalayan is a Filipino youth media collective in Toronto.
-                I rebuilt their website (including a CMS for the blog) using GatsbyJS.`,
-        link: 'https://kamalayan.ca',
+                I rebuilt their website (including a CMS for blog content)
+                to help promote their new summer 2018 Midya Project.`,
+        demoLink: 'https://kamalayan.ca',
+        repoLink: 'https://github.com/a8t/kamalayan/',
+        techStack: ['React', 'SCSS', 'NetlifyCMS'],
     },
     {
         id: '2',
@@ -27,18 +30,24 @@ const DEFAULT_IMAGES = [
         thumbnail: tuner,
         caption: 'WebTuner',
         description: `Guitar tuner apps often lack a convenience factor, requiring plugins or
-                installation. I leveraged native web audio APIs to create a simple
+                installation. I used browser web audio APIs to create a simple
                 but sturdy tuner that works out of the box.`,
-        link: 'https://festive-wright-1b14cc.netlify.com/#/',
+        demoLink: 'https://andytran.at/guitar-tuner',
+        repoLink: 'https://github.com/a8t/guitar-tuner/',
+        techStack: ['VueJS', 'Web Audio API'],
     },
     {
         id: '3',
         src: timetablr,
         thumbnail: timetablr,
         caption: 'Timetablr',
-        description: `An unpleasant part of each school term is scheduling courses.
-            Timetablr takes some of the headache away with a fun, intuitive interface.`,
-        link: 'https://nervous-lovelace-d6d571.netlify.com/',
+        description: `One of my least favourite parts of each school year during university was
+            scheduling courses by hand. We built Timetablr focusing on a fun,
+            intuitive interface to improve that experience.
+            `,
+        demoLink: 'https://andytran.at/timetablr',
+        repoLink: 'https://github.com/a8t/timetablr',
+        techStack: ['React', 'Ruby on Rails'],
     },
     {
         id: '4',
@@ -48,7 +57,9 @@ const DEFAULT_IMAGES = [
         description: `We needed a tool to organize our thoughts while
                 building Timetablr, so I put together a simple drag-and-drop app for
                 adding and sorting feature ideas. Every user has a story!`,
-        link: 'https://pedantic-ptolemy-f4e64c.netlify.com/#/',
+        demoLink: 'https://andytran.at/user-stories',
+        repoLink: 'https://github.com/a8t/user-stories',
+        techStack: ['VueJS', 'Firebase'],
     },
 ]
 
@@ -182,24 +193,7 @@ class HomeIndex extends React.Component {
                             fond of.
                         </p>
 
-                        <Gallery
-                            images={DEFAULT_IMAGES.map(
-                                ({
-                                    id,
-                                    src,
-                                    thumbnail,
-                                    caption,
-                                    description,
-                                    link,
-                                }) => ({
-                                    src,
-                                    thumbnail,
-                                    caption,
-                                    description,
-                                    link,
-                                })
-                            )}
-                        />
+                        <Gallery images={[...DEFAULT_IMAGES]} />
                     </section>
 
                     <section id="three">
