@@ -56,6 +56,12 @@ class Footer extends React.Component {
                                 GatsbyJS
                             </a>
                         </li>
+                        <li>
+                            Design:{' '}
+                            <a href="https://html5up.net/" target="_blank">
+                                HTML5Up
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
