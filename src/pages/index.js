@@ -11,6 +11,11 @@ import userstories from '../assets/images/fulls/userstories.jpg'
 import tuner from '../assets/images/fulls/tuner.jpg'
 import kamalayan from '../assets/images/fulls/kamalayan.jpg'
 
+import timetablrThumb from '../assets/images/thumbs/timetablrThumb.jpg'
+import userstoriesThumb from '../assets/images/thumbs/userstoriesThumb.jpg'
+import tunerThumb from '../assets/images/thumbs/tunerThumb.jpg'
+import kamalayanThumb from '../assets/images/thumbs/kamalayanThumb.jpg'
+
 const TechContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +26,7 @@ const DEFAULT_IMAGES = [
     {
         id: '1',
         src: kamalayan,
-        thumbnail: kamalayan,
+        thumbnail: kamalayanThumb,
         caption: 'Kamalayan',
         description: `Kamalayan is a Filipino youth media collective in Toronto.
                 I rebuilt their website (including a CMS for blog content)
@@ -37,12 +42,12 @@ const DEFAULT_IMAGES = [
     {
         id: '2',
         src: tuner,
-        thumbnail: tuner,
+        thumbnail: tunerThumb,
         caption: 'WebTuner',
         description: `Guitar tuner apps often lack a convenience factor, requiring plugins or
                 installation. I used browser web audio APIs to create a simple
                 but sturdy tuner that works out of the box.`,
-        demoLink: 'https://andytran.at/guitar-tuner',
+        demoLink: 'https://www.webtuner.app',
         repoLink: 'https://github.com/a8t/guitar-tuner/',
         techStack: [
             { name: 'VueJS', type: tech.frontend },
@@ -52,13 +57,13 @@ const DEFAULT_IMAGES = [
     {
         id: '3',
         src: timetablr,
-        thumbnail: timetablr,
+        thumbnail: timetablrThumb,
         caption: 'Timetablr',
         description: `One of my least favourite parts of each school year during university was
             scheduling courses by hand. We built Timetablr focusing on a fun,
             intuitive interface to improve that experience.
             `,
-        demoLink: 'https://andytran.at/timetablr',
+        demoLink: 'https://timetablr.com',
         repoLink: 'https://github.com/a8t/timetablr',
         techStack: [
             { name: 'React', type: tech.frontend },
@@ -68,7 +73,7 @@ const DEFAULT_IMAGES = [
     {
         id: '4',
         src: userstories,
-        thumbnail: userstories,
+        thumbnail: userstoriesThumb,
         caption: 'User Stories',
         description: `We needed a tool to organize our thoughts while
                 building Timetablr, so I put together a simple drag-and-drop app for
@@ -100,7 +105,7 @@ class HomeIndex extends React.Component {
                 </Helmet>
 
                 <div id="main">
-                    <section id="one">
+                    <section id="about">
                         <header className="major">
                             <h2>Things I Care About</h2>
                         </header>
@@ -178,7 +183,7 @@ class HomeIndex extends React.Component {
                         <Gallery images={[...DEFAULT_IMAGES]} />
                     </section>
 
-                    <section id="three">
+                    <section id="contact">
                         <h2>Get In Touch!</h2>
                         <p>
                             I'd love to hear from you. You can reach me either

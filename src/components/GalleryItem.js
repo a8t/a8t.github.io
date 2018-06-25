@@ -46,8 +46,7 @@ const ItemThumbnailContainer = styled.a`
     width: 100%;
     &:before {
         transition: opacity ${duration.transition} ease-in-out;
-        background: url('images/overlay.png');
-        border-radius: url(${overlay});
+        background: url(${overlay});
         content: '';
         display: block;
         height: 100%;
@@ -121,36 +120,61 @@ const TechContainer = styled.div`
     flex-wrap: wrap;
 `
 
-const GalleryItem = props => {
-    const { obj, index, handleOpenImage } = props
-    const techStackBubbles = obj.techStack.map(eachTech => (
-        <Tech key={eachTech.name} type={eachTech.type}>
-            {eachTech.name}
-        </Tech>
-    ))
-    return (
-        <GalleryItemArticle>
-            <ItemThumbnailContainer
-                href={obj.src}
-                onClick={e => handleOpenImage(index, e)}
-            >
-                <ItemThumbnail src={obj.thumbnail} alt={obj.caption} />
-            </ItemThumbnailContainer>
-            <TitleLinkContainer>
-                <ItemTitle>{obj.caption}</ItemTitle>
-                <LinkContainer>
-                    <Link href={obj.demoLink} target="_blank" rel="noopener">
-                        Demo
-                    </Link>
-                    <Link href={obj.repoLink} target="_blank" rel="noopener">
-                        Code
-                    </Link>
-                </LinkContainer>
-            </TitleLinkContainer>
-            <ItemDescription>{obj.description}</ItemDescription>
-            <TechContainer>{techStackBubbles}</TechContainer>
-        </GalleryItemArticle>
-    )
+class GalleryItem extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            thumb: {},
+        }
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                thumb: this.props.obj.thumbnail,
+            })
+        }, 200)
+    }
+
+    render() {
+        const { obj, index, handleOpenImage } = this.props
+        const techStackBubbles = obj.techStack.map(eachTech => (
+            <Tech key={eachTech.name} type={eachTech.type}>
+                {eachTech.name}
+            </Tech>
+        ))
+        return (
+            <GalleryItemArticle>
+                <ItemThumbnailContainer
+                    href={obj.src}
+                    onClick={e => handleOpenImage(index, e)}
+                >
+                    <ItemThumbnail src={this.state.thumb} alt={obj.caption} />
+                </ItemThumbnailContainer>
+                <TitleLinkContainer>
+                    <ItemTitle>{obj.caption}</ItemTitle>
+                    <LinkContainer>
+                        <Link
+                            href={obj.demoLink}
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Demo
+                        </Link>
+                        <Link
+                            href={obj.repoLink}
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Code
+                        </Link>
+                    </LinkContainer>
+                </TitleLinkContainer>
+                <ItemDescription>{obj.description}</ItemDescription>
+                <TechContainer>{techStackBubbles}</TechContainer>
+            </GalleryItemArticle>
+        )
+    }
 }
 
 GalleryItem.propTypes = {
