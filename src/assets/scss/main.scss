@@ -742,7 +742,6 @@ input[type='button'],
     @include vendor('align-items', 'flex-end');
     @include vendor('justify-content', 'space-between');
     background-color: _palette(accent2, bg);
-    background-image: url('images/bg.jpg');
     background-position: center bottom;
     background-size: cover;
     background-repeat: no-repeat;
@@ -759,6 +758,7 @@ input[type='button'],
         width: 100%;
     }
     > .inner {
+        z-index: 5;
         @include vendor('flex-grow', '1');
         margin: 0 0 ($size-header-pad * 0.5) 0;
         .hat {
@@ -794,6 +794,7 @@ input[type='button'],
 /* Footer */
 
 #footer {
+    z-index: 5;
     margin-bottom: 150px;
     .icons {
         margin: (_size(element-margin) * 0.5) 0 0 0;
@@ -1098,7 +1099,6 @@ body.is-touch {
         text-align: center;
         top: auto;
         width: 100%;
-        display: block;
         height: initial;
         margin: 0;
         border: none;

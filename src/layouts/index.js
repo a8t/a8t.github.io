@@ -6,11 +6,10 @@ import Header from '../components/Header'
 
 class Template extends React.Component {
     render() {
-        const { children } = this.props
-
+        const { children, data } = this.props
         return (
             <div className="template-container">
-                <Header />
+                <Header headerImage={data.headerImage} />
                 {children()}
             </div>
         )
@@ -22,3 +21,20 @@ Template.propTypes = {
 }
 
 export default Template
+
+export const pageQuery = graphql`
+    query HeaderQuery {
+        site {
+            siteMetadata {
+                title
+                description
+            }
+        }
+
+        headerImage: imageSharp(id: { regex: "/bg.jpg/" }) {
+            sizes(maxWidth: 1240) {
+                ...GatsbyImageSharpSizes
+            }
+        }
+    }
+`
