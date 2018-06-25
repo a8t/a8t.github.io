@@ -121,21 +121,6 @@ const TechContainer = styled.div`
 `
 
 class GalleryItem extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            thumb: {},
-        }
-    }
-
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                thumb: this.props.obj.thumbnail,
-            })
-        }, 200)
-    }
-
     render() {
         const { obj, index, handleOpenImage } = this.props
         const techStackBubbles = obj.techStack.map(eachTech => (
@@ -149,7 +134,7 @@ class GalleryItem extends React.Component {
                     href={obj.src}
                     onClick={e => handleOpenImage(index, e)}
                 >
-                    <ItemThumbnail src={this.state.thumb} alt={obj.caption} />
+                    <ItemThumbnail src={obj.thumbnail} alt={obj.caption} />
                 </ItemThumbnailContainer>
                 <TitleLinkContainer>
                     <ItemTitle>{obj.caption}</ItemTitle>
