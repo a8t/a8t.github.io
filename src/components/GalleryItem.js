@@ -139,20 +139,24 @@ class GalleryItem extends React.Component {
                 <TitleLinkContainer>
                     <ItemTitle>{obj.caption}</ItemTitle>
                     <LinkContainer>
-                        <Link
-                            href={obj.demoLink}
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Demo
-                        </Link>
-                        <Link
-                            href={obj.repoLink}
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Code
-                        </Link>
+                        {obj.demoLink && (
+                            <Link
+                                href={obj.demoLink}
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Site
+                            </Link>
+                        )}
+                        {obj.repoLink && (
+                            <Link
+                                href={obj.repoLink}
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Code
+                            </Link>
+                        )}
                     </LinkContainer>
                 </TitleLinkContainer>
                 <ItemDescription>{obj.description}</ItemDescription>
