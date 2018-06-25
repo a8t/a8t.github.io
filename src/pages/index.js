@@ -6,7 +6,7 @@ import Gallery from '../components/Gallery'
 import Tech from '../components/Tech'
 import { tech } from '../assets/vars.json'
 
-import timetablr from '../assets/images/fulls/timetablr.jpg'
+import timetablr from '../assets/images/fulls/timetablr.gif'
 import roomvo from '../assets/images/fulls/roomvo.gif'
 import userstories from '../assets/images/fulls/userstories.jpg'
 import tuner from '../assets/images/fulls/tuner.gif'
@@ -42,6 +42,20 @@ const DEFAULT_IMAGES = [
         ],
     },
     {
+        id: 'roomvo',
+        src: roomvo,
+        thumbnail: roomvoThumb,
+        caption: 'Roomvo',
+        description: `At roomvo I worked on the landing page as well as the visualizer app
+                and backend infrastructure for a CRM. Django for the backend (analytics,
+                database interactions) and Polymer for the frontend.`,
+        demoLink: 'https://www.roomvo.com',
+        techStack: [
+            { name: 'PolymerJS', type: tech.frontend },
+            { name: 'Django (Python)', type: tech.backend },
+        ],
+    },
+    {
         id: '2',
         src: tuner,
         thumbnail: tunerThumb,
@@ -54,20 +68,6 @@ const DEFAULT_IMAGES = [
         techStack: [
             { name: 'VueJS', type: tech.frontend },
             { name: 'Web Audio API', type: tech.misc },
-        ],
-    },
-    {
-        id: 'roomvo',
-        src: roomvo,
-        thumbnail: roomvoThumb,
-        caption: 'Roomvo',
-        description: `At roomvo I worked on the landing page as well as the visualizer app
-                and backend infrastructure for a CRM. Django for the backend (analytics,
-                database interactions) and Polymer for the frontend.`,
-        demoLink: 'https://www.roomvo.com',
-        techStack: [
-            { name: 'PolymerJS', type: tech.frontend },
-            { name: 'Django (Python)', type: tech.backend },
         ],
     },
     {
