@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Lightbox from 'react-images'
 import styled from 'styled-components'
 import { size, duration, font, tech } from '../assets/vars.json'
 import overlay from '../assets/scss/images/overlay.png'
@@ -121,8 +122,29 @@ const TechContainer = styled.div`
 `
 
 class GalleryItem extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            lightboxIsOpen: false,
+        }
+
+        this.closeLightbox = this.closeLightbox.bind(this)
+        this.openLightbox = this.openLightbox.bind(this)
+    }
+    openLightbox(event) {
+        event.preventDefault()
+        this.setState({
+            lightboxIsOpen: true,
+        })
+    }
+    closeLightbox() {
+        this.setState({
+            lightboxIsOpen: false,
+        })
+    }
     render() {
-        const { obj, index, handleOpenImage } = this.props
+        const { obj, index } = this.props
         const techStackBubbles = obj.techStack.map(eachTech => (
             <Tech key={eachTech.name} type={eachTech.type}>
                 {eachTech.name}
@@ -132,7 +154,7 @@ class GalleryItem extends React.Component {
             <GalleryItemArticle>
                 <ItemThumbnailContainer
                     href={obj.src}
-                    onClick={e => handleOpenImage(index, e)}
+                    onClick={this.openLightbox}
                 >
                     <ItemThumbnail src={obj.thumbnail} alt={obj.caption} />
                 </ItemThumbnailContainer>
@@ -161,13 +183,23 @@ class GalleryItem extends React.Component {
                 </TitleLinkContainer>
                 <ItemDescription>{obj.description}</ItemDescription>
                 <TechContainer>{techStackBubbles}</TechContainer>
+                <Lightbox
+                    images={[
+                        {
+                            src: obj.src,
+                            caption: obj.caption,
+                            alt: obj.description,
+                        },
+                    ]}
+                    isOpen={this.state.lightboxIsOpen}
+                    onClose={this.closeLightbox}
+                />
             </GalleryItemArticle>
         )
     }
 }
 
 GalleryItem.propTypes = {
-    handleOpenImage: PropTypes.func.isRequired,
     obj: PropTypes.object.isRequired,
     index: PropTypes.number.isRequired,
 }
