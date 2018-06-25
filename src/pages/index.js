@@ -7,11 +7,13 @@ import Tech from '../components/Tech'
 import { tech } from '../assets/vars.json'
 
 import timetablr from '../assets/images/fulls/timetablr.jpg'
+import roomvo from '../assets/images/fulls/roomvo.gif'
 import userstories from '../assets/images/fulls/userstories.jpg'
-import tuner from '../assets/images/fulls/tuner.jpg'
-import kamalayan from '../assets/images/fulls/kamalayan.jpg'
+import tuner from '../assets/images/fulls/tuner.gif'
+import kamalayan from '../assets/images/fulls/kamalayan.gif'
 
 import timetablrThumb from '../assets/images/thumbs/timetablrThumb.jpg'
+import roomvoThumb from '../assets/images/thumbs/roomvoThumb.jpg'
 import userstoriesThumb from '../assets/images/thumbs/userstoriesThumb.jpg'
 import tunerThumb from '../assets/images/thumbs/tunerThumb.jpg'
 import kamalayanThumb from '../assets/images/thumbs/kamalayanThumb.jpg'
@@ -52,6 +54,20 @@ const DEFAULT_IMAGES = [
         techStack: [
             { name: 'VueJS', type: tech.frontend },
             { name: 'Web Audio API', type: tech.misc },
+        ],
+    },
+    {
+        id: 'roomvo',
+        src: roomvo,
+        thumbnail: roomvoThumb,
+        caption: 'Roomvo',
+        description: `At roomvo I worked on the landing page as well as the visualizer app
+                and backend infrastructure for a CRM. Django for the backend (analytics,
+                database interactions) and Polymer for the frontend.`,
+        demoLink: 'https://www.roomvo.com',
+        techStack: [
+            { name: 'PolymerJS', type: tech.frontend },
+            { name: 'Django (Python)', type: tech.backend },
         ],
     },
     {
@@ -165,13 +181,13 @@ class HomeIndex extends React.Component {
                         </p>
                     </section>
 
-                    <section id="projects">
-                        <h2>Projects</h2>
+                    <section id="Portfolio">
+                        <h2>Portfolio</h2>
 
                         <p>
                             Here are some projects I've put together that I'm
-                            fond of. All projects have live demos and the
-                            codebases are available on GitHub!
+                            fond of. Where possible, I've linked to both a live
+                            demo and the codebase on Github!
                         </p>
                         <div>Technologies used legend:</div>
                         <TechContainer>
