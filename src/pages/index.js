@@ -26,6 +26,20 @@ const TechContainer = styled.div`
 
 const DEFAULT_IMAGES = [
     {
+        id: 'roomvo',
+        src: roomvo,
+        thumbnail: roomvoThumb,
+        caption: 'Roomvo',
+        description: `At roomvo I worked on the landing page as well as the visualizer app
+                and backend infrastructure for a CRM. Django for the backend (analytics,
+                database interactions) and Polymer for the frontend.`,
+        demoLink: 'https://www.roomvo.com',
+        techStack: [
+            { name: 'PolymerJS', type: tech.frontend },
+            { name: 'Django (Python)', type: tech.backend },
+        ],
+    },
+    {
         id: '1',
         src: kamalayan,
         thumbnail: kamalayanThumb,
@@ -39,20 +53,6 @@ const DEFAULT_IMAGES = [
             { name: 'React', type: tech.frontend },
             { name: 'SCSS', type: tech.frontend },
             { name: 'Netlify', type: tech.backend },
-        ],
-    },
-    {
-        id: 'roomvo',
-        src: roomvo,
-        thumbnail: roomvoThumb,
-        caption: 'Roomvo',
-        description: `At roomvo I worked on the landing page as well as the visualizer app
-                and backend infrastructure for a CRM. Django for the backend (analytics,
-                database interactions) and Polymer for the frontend.`,
-        demoLink: 'https://www.roomvo.com',
-        techStack: [
-            { name: 'PolymerJS', type: tech.frontend },
-            { name: 'Django (Python)', type: tech.backend },
         ],
     },
     {
@@ -121,6 +121,17 @@ class HomeIndex extends React.Component {
                 </Helmet>
 
                 <div id="main">
+                    <section id="Portfolio">
+                        <h2>Portfolio</h2>
+
+                        <TechContainer>
+                            <Tech type={tech.frontend}>Frontend</Tech>
+                            <Tech type={tech.backend}>Backend</Tech>
+                            <Tech type={tech.misc}>Misc</Tech>
+                        </TechContainer>
+
+                        <Gallery images={[...DEFAULT_IMAGES]} />
+                    </section>
                     <section id="about">
                         <header className="major">
                             <h2>Things I Care About</h2>
@@ -134,8 +145,8 @@ class HomeIndex extends React.Component {
                             <strong> engaging</strong>, and
                             <strong> accessible interfaces</strong>. I'm a proud
                             JavaScript nerd, and I've worked with
-                            <strong> PolymerJS</strong>,
-                            <strong> Vue.js</strong>, and
+                            <strong> PolymerJS</strong>,<strong> Vue.js</strong>
+                            , and
                             <strong> React</strong>. I refuse to let myself stop
                             learning, and that's why the web is so awesome to
                             me—there will never be a shortage of things to
@@ -164,8 +175,7 @@ class HomeIndex extends React.Component {
                             >
                                 Here are some photos of my dog
                             </a>
-                            . His name is Scrappy and he's a 16-year-old bichon.
-                            What a little cutie.
+                            . His name was Scrappy and I loved him very much!
                         </p>
                         <p>
                             And finally,{' '}
@@ -175,30 +185,12 @@ class HomeIndex extends React.Component {
                                 href="https://drive.google.com/file/d/1HCQ63qxR0ZSxvODmlM-1i_WbTwgy9i2_/view"
                             >
                                 here's a copy of my resume
-                            </a>. Right now I'm open to hearing about freelance,
+                            </a>
+                            . Right now I'm open to hearing about freelance,
                             contract, and full-time work in Toronto. Thanks for
                             reading.
                         </p>
                     </section>
-
-                    <section id="Portfolio">
-                        <h2>Portfolio</h2>
-
-                        <p>
-                            Here are some projects I've put together that I'm
-                            fond of. Where possible, I've linked to both a live
-                            demo and the codebase on Github!
-                        </p>
-                        <div>Technologies used legend:</div>
-                        <TechContainer>
-                            <Tech type={tech.frontend}>Frontend</Tech>
-                            <Tech type={tech.backend}>Backend</Tech>
-                            <Tech type={tech.misc}>Misc</Tech>
-                        </TechContainer>
-
-                        <Gallery images={[...DEFAULT_IMAGES]} />
-                    </section>
-
                     <section id="contact">
                         <h2>Get In Touch!</h2>
                         <p>
