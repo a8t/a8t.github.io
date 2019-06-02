@@ -21,319 +21,287 @@ import tunerThumb from '../assets/images/thumbs/tunerThumb.jpg'
 import kamalayanThumb from '../assets/images/thumbs/kamalayanThumb.jpg'
 
 const TechContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 `
 
 const DEFAULT_IMAGES = [
-    {
-        id: 'roomvo',
-        src: roomvo,
-        thumbnail: roomvoThumb,
-        caption: 'Roomvo',
-        description: `At roomvo I worked on the landing page as well as the visualizer app
+  {
+    id: 'roomvo',
+    src: roomvo,
+    thumbnail: roomvoThumb,
+    caption: 'Roomvo',
+    description: `At roomvo I worked on the landing page as well as the visualizer app
                 and backend infrastructure for a CRM. Django for the backend (analytics,
                 database interactions) and Polymer for the frontend.`,
-        demoLink: 'https://www.roomvo.com',
-        techStack: [
-            { name: 'PolymerJS', type: tech.frontend },
-            { name: 'Django (Python)', type: tech.backend },
-        ],
-    },
-    {
-        id: '1',
-        src: kamalayan,
-        thumbnail: kamalayanThumb,
-        caption: 'Kamalayan',
-        description: `Kamalayan is a Filipino youth media collective in Toronto.
+    demoLink: 'https://www.roomvo.com',
+    techStack: [
+      { name: 'PolymerJS', type: tech.frontend },
+      { name: 'Django (Python)', type: tech.backend },
+    ],
+  },
+  {
+    id: '1',
+    src: kamalayan,
+    thumbnail: kamalayanThumb,
+    caption: 'Kamalayan',
+    description: `Kamalayan is a Filipino youth media collective in Toronto.
                 I rebuilt their website (including a CMS for blog content)
                 to help promote their new summer 2018 Midya Project.`,
-        demoLink: 'https://kamalayan.ca',
-        repoLink: 'https://github.com/a8t/kamalayan/',
-        techStack: [
-            { name: 'React', type: tech.frontend },
-            { name: 'SCSS', type: tech.frontend },
-            { name: 'Netlify', type: tech.backend },
-        ],
-    },
-    {
-        id: '2',
-        src: tuner,
-        thumbnail: tunerThumb,
-        caption: 'WebTuner',
-        description: `Guitar tuner apps often lack a convenience factor, requiring plugins or
+    demoLink: 'https://kamalayan.ca',
+    repoLink: 'https://github.com/a8t/kamalayan/',
+    techStack: [
+      { name: 'React', type: tech.frontend },
+      { name: 'SCSS', type: tech.frontend },
+      { name: 'Netlify', type: tech.backend },
+    ],
+  },
+  {
+    id: '2',
+    src: tuner,
+    thumbnail: tunerThumb,
+    caption: 'WebTuner',
+    description: `Guitar tuner apps often lack a convenience factor, requiring plugins or
                 installation. I used browser web audio APIs to create a simple
                 but sturdy tuner that works out of the box.`,
-        demoLink: 'https://www.webtuner.app',
-        repoLink: 'https://github.com/a8t/guitar-tuner/',
-        techStack: [
-            { name: 'VueJS', type: tech.frontend },
-            { name: 'Web Audio API', type: tech.misc },
-        ],
-    },
-    {
-        id: '3',
-        src: timetablr,
-        thumbnail: timetablrThumb,
-        caption: 'Timetablr',
-        description: `One of my least favourite parts of each school year during university was
+    demoLink: 'https://www.webtuner.app',
+    repoLink: 'https://github.com/a8t/guitar-tuner/',
+    techStack: [
+      { name: 'VueJS', type: tech.frontend },
+      { name: 'Web Audio API', type: tech.misc },
+    ],
+  },
+  {
+    id: '3',
+    src: timetablr,
+    thumbnail: timetablrThumb,
+    caption: 'Timetablr',
+    description: `One of my least favourite parts of each school year during university was
             scheduling courses by hand. We built Timetablr focusing on a fun,
             intuitive interface to improve that experience.
             `,
-        demoLink: 'https://timetablr.com',
-        repoLink: 'https://github.com/a8t/timetablr',
-        techStack: [
-            { name: 'React', type: tech.frontend },
-            { name: 'Ruby on Rails', type: tech.backend },
-        ],
-    },
-    {
-        id: '4',
-        src: userstories,
-        thumbnail: userstoriesThumb,
-        caption: 'User Stories',
-        description: `We needed a tool to organize our thoughts while
+    demoLink: 'https://timetablr.com',
+    repoLink: 'https://github.com/a8t/timetablr',
+    techStack: [
+      { name: 'React', type: tech.frontend },
+      { name: 'Ruby on Rails', type: tech.backend },
+    ],
+  },
+  {
+    id: '4',
+    src: userstories,
+    thumbnail: userstoriesThumb,
+    caption: 'User Stories',
+    description: `We needed a tool to organize our thoughts while
                 building Timetablr, so I put together a simple drag-and-drop app for
                 adding and sorting feature ideas. Every user has a story!`,
-        demoLink: 'https://andytran.at/user-stories',
-        repoLink: 'https://github.com/a8t/user-stories',
-        techStack: [
-            { name: 'VueJS', type: tech.frontend },
-            { name: 'Firebase', type: tech.backend },
-        ],
-    },
+    demoLink: 'https://andytran.at/user-stories',
+    repoLink: 'https://github.com/a8t/user-stories',
+    techStack: [
+      { name: 'VueJS', type: tech.frontend },
+      { name: 'Firebase', type: tech.backend },
+    ],
+  },
 ]
 
-class HomeIndex extends React.Component {
-    render() {
-        const { site, headerImage } = this.props.data
+function HomeIndex({ data }) {
+  const { site, headerImage } = data
 
-        const {
-            title: siteTitle,
-            description: siteDescription,
-        } = site.siteMetadata
+  const { title: siteTitle, description: siteDescription } = site.siteMetadata
 
-        return (
-            <Layout headerImage={headerImage}>
-                <div>
-                    <Helmet>
-                        <title>{siteTitle}</title>
-                        <meta name="description" content={siteDescription} />
-                        <meta property="og:title" content="Andy Tran" />
-                        <meta
-                            property="og:image"
-                            content="https://i.imgur.com/LHWTvgj.jpg"
-                        />
-                    </Helmet>
+  return (
+    <Layout headerImage={headerImage}>
+      <div>
+        <Helmet>
+          <title>{siteTitle}</title>
+          <meta name="description" content={siteDescription} />
+          <meta property="og:title" content="Andy Tran" />
+          <meta property="og:image" content="https://i.imgur.com/LHWTvgj.jpg" />
+        </Helmet>
 
-                    <div id="main">
-                        <section id="Portfolio">
-                            <h2>Portfolio</h2>
+        <div id="main">
+          <section id="Portfolio">
+            <h2>Portfolio</h2>
 
-                            <TechContainer>
-                                <Tech type={tech.frontend}>Frontend</Tech>
-                                <Tech type={tech.backend}>Backend</Tech>
-                                <Tech type={tech.misc}>Misc</Tech>
-                            </TechContainer>
+            <TechContainer>
+              <Tech type={tech.frontend}>Frontend</Tech>
+              <Tech type={tech.backend}>Backend</Tech>
+              <Tech type={tech.misc}>Misc</Tech>
+            </TechContainer>
 
-                            <Gallery images={[...DEFAULT_IMAGES]} />
-                        </section>
-                        <section id="about">
-                            <header className="major">
-                                <h2>Things I Care About</h2>
-                            </header>
-                            <p>
-                                I'm web developer. I prefer working a full stack
-                                (with experience handling <strong>Rails</strong>{' '}
-                                and
-                                <strong> Django</strong> backends), but I'm
-                                especially passionate about building
-                                <strong> responsive</strong>,
-                                <strong> engaging</strong>, and
-                                <strong> accessible interfaces</strong>. I'm a
-                                proud JavaScript nerd, and I've worked with
-                                <strong> PolymerJS</strong>,
-                                <strong> Vue.js</strong>, and
-                                <strong> React</strong>. I refuse to let myself
-                                stop learning, and that's why the web is so
-                                awesome to me—there will never be a shortage of
-                                things to learn.
-                            </p>
-                            <p>
-                                I love SVG and animation. I know my way around
-                                Illustrator, and I'm picking up GSAP for
-                                animation on the web. It's an exciting platform
-                                that's going in exciting places!
-                            </p>
-                            <p>
-                                My background is in physics. That was OK, but I
-                                much prefer what I'm doing now with software.
-                                Outside of work, I'm a serial hobbyist. I
-                                crochet, sew, fix bikes, play guitar and lap
-                                steel, rock at Tetris, and love cryptic
-                                crosswords. You could say that I'm a jack of
-                                many trades, but mostly
-                                <strong>
-                                    {' '}
-                                    I'm just terrified of being bored
-                                </strong>
-                                .
-                            </p>
-                            <p>
-                                <a
-                                    target="_blank"
-                                    rel="noopener"
-                                    href="https://photos.google.com/share/AF1QipM3JLFmxKJLNmuZuQHjt7LpUI7ZbVATlwnjx7DFpTOOkKW7pHdklVxvi8-uzUM4fg?key=bTVWTWNpTGExdXFoVy14cjZiZ21iUm5ELVZfMFpn"
-                                >
-                                    Here are some photos of my dog
-                                </a>
-                                . His name was Scrappy and I loved him very
-                                much!
-                            </p>
-                            <p>
-                                And finally,{' '}
-                                <a
-                                    target="_blank"
-                                    rel="noopener"
-                                    href="https://drive.google.com/file/d/1HCQ63qxR0ZSxvODmlM-1i_WbTwgy9i2_/view"
-                                >
-                                    here's a copy of my resume
-                                </a>
-                                . Right now I'm open to hearing about freelance,
-                                contract, and full-time work in Toronto. Thanks
-                                for reading.
-                            </p>
-                        </section>
-                        <section id="contact">
-                            <h2>Get In Touch!</h2>
-                            <p>
-                                I'd love to hear from you. You can reach me
-                                either via the form below or via the social
-                                media links. I'll definitely get back to you
-                                ASAP!
-                            </p>
-                            <div className="row">
-                                <div className="8u 12u$(small)">
-                                    <form
-                                        method="post"
-                                        action="https://formspree.io/me@andytran.at"
-                                    >
-                                        <div className="row uniform 50%">
-                                            <div className="6u 12u$(xsmall)">
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    id="name"
-                                                    placeholder="Name"
-                                                />
-                                            </div>
-                                            <div className="6u 12u$(xsmall)">
-                                                <input
-                                                    type="email"
-                                                    name="email"
-                                                    id="email"
-                                                    placeholder="Email"
-                                                />
-                                            </div>
-                                            <div className="12u">
-                                                <textarea
-                                                    name="message"
-                                                    id="message"
-                                                    placeholder="Message"
-                                                    rows="4"
-                                                />
-                                            </div>
-                                        </div>
-                                        <input
-                                            className="form-submit"
-                                            type="submit"
-                                            value="Send Message"
-                                        />
-                                    </form>
-                                </div>
-                                <div className="4u 12u$(small)">
-                                    <ul className="labeled-icons">
-                                        <li>
-                                            <a
-                                                href="https://www.linkedin.com/in/andy8tran"
-                                                target="_blank"
-                                                rel="noopener"
-                                            >
-                                                <h3 className="icon fa-linkedin-square">
-                                                    <span className="label">
-                                                        LinkedIn
-                                                    </span>
-                                                </h3>
-                                                andy8tran
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="https://github.com/a8t"
-                                                target="_blank"
-                                                rel="noopener"
-                                            >
-                                                <h3 className="icon fa-github">
-                                                    <span className="label">
-                                                        Github
-                                                    </span>
-                                                </h3>
-                                                a8t
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="https://codepen.io/a8t/pens/public/"
-                                                target="_blank"
-                                                rel="noopener"
-                                            >
-                                                <h3 className="icon fa-codepen">
-                                                    <span className="label">
-                                                        CodePen
-                                                    </span>
-                                                </h3>
-                                                a8t
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="mailto:me@andytran.at">
-                                                <h3 className="icon fa-envelope-o">
-                                                    <span className="label">
-                                                        Email
-                                                    </span>
-                                                </h3>
-                                                me@andytran.at
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
+            <Gallery images={[...DEFAULT_IMAGES]} />
+          </section>
+          <section id="about">
+            <header className="major">
+              <h2>Things I Care About</h2>
+            </header>
+            <p>
+              I'm web developer. I prefer working a full stack (with experience
+              handling <strong>Rails</strong> and
+              <strong> Django</strong> backends), but I'm especially passionate
+              about building
+              <strong> responsive</strong>,<strong> engaging</strong>, and
+              <strong> accessible interfaces</strong>. I'm a proud JavaScript
+              nerd, and I've worked with
+              <strong> PolymerJS</strong>,<strong> Vue.js</strong>, and
+              <strong> React</strong>. I refuse to let myself stop learning, and
+              that's why the web is so awesome to me—there will never be a
+              shortage of things to learn.
+            </p>
+            <p>
+              I love SVG and animation. I know my way around Illustrator, and
+              I'm picking up GSAP for animation on the web. It's an exciting
+              platform that's going in exciting places!
+            </p>
+            <p>
+              My background is in physics. That was OK, but I much prefer what
+              I'm doing now with software. Outside of work, I'm a serial
+              hobbyist. I crochet, sew, fix bikes, play guitar and lap steel,
+              rock at Tetris, and love cryptic crosswords. You could say that
+              I'm a jack of many trades, but mostly
+              <strong> I'm just terrified of being bored</strong>.
+            </p>
+            <p>
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://photos.google.com/share/AF1QipM3JLFmxKJLNmuZuQHjt7LpUI7ZbVATlwnjx7DFpTOOkKW7pHdklVxvi8-uzUM4fg?key=bTVWTWNpTGExdXFoVy14cjZiZ21iUm5ELVZfMFpn"
+              >
+                Here are some photos of my dog
+              </a>
+              . His name was Scrappy and I loved him very much!
+            </p>
+            <p>
+              And finally,{' '}
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://drive.google.com/file/d/1HCQ63qxR0ZSxvODmlM-1i_WbTwgy9i2_/view"
+              >
+                here's a copy of my resume
+              </a>
+              . Right now I'm open to hearing about freelance, contract, and
+              full-time work in Toronto. Thanks for reading.
+            </p>
+          </section>
+          <section id="contact">
+            <h2>Get In Touch!</h2>
+            <p>
+              I'd love to hear from you. You can reach me either via the form
+              below or via the social media links. I'll definitely get back to
+              you ASAP!
+            </p>
+            <div className="row">
+              <div className="8u 12u$(small)">
+                <form
+                  method="post"
+                  action="https://formspree.io/me@andytran.at"
+                >
+                  <div className="row uniform 50%">
+                    <div className="6u 12u$(xsmall)">
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Name"
+                      />
                     </div>
-                </div>
-            </Layout>
-        )
-    }
+                    <div className="6u 12u$(xsmall)">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div className="12u">
+                      <textarea
+                        name="message"
+                        id="message"
+                        placeholder="Message"
+                        rows="4"
+                      />
+                    </div>
+                  </div>
+                  <input
+                    className="form-submit"
+                    type="submit"
+                    value="Send Message"
+                  />
+                </form>
+              </div>
+              <div className="4u 12u$(small)">
+                <ul className="labeled-icons">
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/andy8tran"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <h3 className="icon fa-linkedin-square">
+                        <span className="label">LinkedIn</span>
+                      </h3>
+                      andy8tran
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/a8t"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <h3 className="icon fa-github">
+                        <span className="label">Github</span>
+                      </h3>
+                      a8t
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://codepen.io/a8t/pens/public/"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <h3 className="icon fa-codepen">
+                        <span className="label">CodePen</span>
+                      </h3>
+                      a8t
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:me@andytran.at">
+                      <h3 className="icon fa-envelope-o">
+                        <span className="label">Email</span>
+                      </h3>
+                      me@andytran.at
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </Layout>
+  )
 }
 
 export default HomeIndex
 
 export const pageQuery = graphql`
-    query HeaderQuery {
-        site {
-            siteMetadata {
-                title
-                description
-            }
-        }
-
-        headerImage: imageSharp(
-            fluid: { originalName: { regex: "/bg.jpg/" } }
-        ) {
-            fluid(maxWidth: 1240) {
-                ...GatsbyImageSharpFluid
-            }
-        }
+  query HeaderQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
     }
+
+    headerImage: imageSharp(fluid: { originalName: { regex: "/bg.jpg/" } }) {
+      fluid(maxWidth: 1240) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
 `
