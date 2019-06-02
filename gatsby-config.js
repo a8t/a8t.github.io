@@ -49,5 +49,15 @@ module.exports = {
         `gatsby-plugin-sharp`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sass`,
+        // {
+        //     resolve: `gatsby-source-wordpress`,
+        //     // your wordpress source
+        //     baseUrl: `a8t.music.blog`,
+        //     protocol: `https`,
+        //     // is it hosted on wordpress.com, or self-hosted?
+        //     hostingWPCOM: false,
+        //     // does your site use the Advanced Custom Fields Plugin?
+        //     useACF: false,
+        // },
     ],
 }

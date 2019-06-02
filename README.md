@@ -1,14 +1,23 @@
-# gatsby-starter-strata
+# andy's portfolio site
 
-Gatsby starter based on the Strata site template, designed by [HTML5 UP](https://html5up.net/strata). Check out https://codebushi.com/gatsby-starters/ for more Gatsby starters and templates.
+## install
 
-## Preview
+To install, run:
 
-http://gatsby-strata.surge.sh/
+```
+yarn install
+```
 
-## Installation
+## develop
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new gatsby-starter-strata https://github.com/ChangoMan/gatsby-starter-strata`
+To start the dev server, run:
 
-Run `gatsby develop` in the terminal to start.
+```
+yarn run develop
+```
+
+or
+
+```
+yarn start
+```
