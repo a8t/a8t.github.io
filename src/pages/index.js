@@ -106,7 +106,7 @@ const DEFAULT_IMAGES = [
 ]
 
 function HomeIndex({ data }) {
-  const { site, headerImage } = data
+  const { site, headerImage, posts } = data
 
   const { title: siteTitle, description: siteDescription } = site.siteMetadata
 
@@ -132,59 +132,20 @@ function HomeIndex({ data }) {
 
             <Gallery images={[...DEFAULT_IMAGES]} />
           </section>
-          <section id="about">
-            <header className="major">
-              <h2>Things I Care About</h2>
-            </header>
-            <p>
-              I'm web developer. I prefer working a full stack (with experience
-              handling <strong>Rails</strong> and
-              <strong> Django</strong> backends), but I'm especially passionate
-              about building
-              <strong> responsive</strong>,<strong> engaging</strong>, and
-              <strong> accessible interfaces</strong>. I'm a proud JavaScript
-              nerd, and I've worked with
-              <strong> PolymerJS</strong>,<strong> Vue.js</strong>, and
-              <strong> React</strong>. I refuse to let myself stop learning, and
-              that's why the web is so awesome to me—there will never be a
-              shortage of things to learn.
-            </p>
-            <p>
-              I love SVG and animation. I know my way around Illustrator, and
-              I'm picking up GSAP for animation on the web. It's an exciting
-              platform that's going in exciting places!
-            </p>
-            <p>
-              My background is in physics. That was OK, but I much prefer what
-              I'm doing now with software. Outside of work, I'm a serial
-              hobbyist. I crochet, sew, fix bikes, play guitar and lap steel,
-              rock at Tetris, and love cryptic crosswords. You could say that
-              I'm a jack of many trades, but mostly
-              <strong> I'm just terrified of being bored</strong>.
-            </p>
-            <p>
-              <a
-                target="_blank"
-                rel="noopener"
-                href="https://photos.google.com/share/AF1QipM3JLFmxKJLNmuZuQHjt7LpUI7ZbVATlwnjx7DFpTOOkKW7pHdklVxvi8-uzUM4fg?key=bTVWTWNpTGExdXFoVy14cjZiZ21iUm5ELVZfMFpn"
-              >
-                Here are some photos of my dog
-              </a>
-              . His name was Scrappy and I loved him very much!
-            </p>
-            <p>
-              And finally,{' '}
-              <a
-                target="_blank"
-                rel="noopener"
-                href="https://drive.google.com/file/d/1HCQ63qxR0ZSxvODmlM-1i_WbTwgy9i2_/view"
-              >
-                here's a copy of my resume
-              </a>
-              . Right now I'm open to hearing about freelance, contract, and
-              full-time work in Toronto. Thanks for reading.
-            </p>
-          </section>
+
+          {posts.edges.map(({ node }) => {
+            const { frontmatter, html } = node
+            const { sectionId, title } = frontmatter
+            return (
+              <section id={sectionId} key={sectionId}>
+                <header className="major">
+                  <h2>{title}</h2>
+                </header>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </section>
+            )
+          })}
+
           <section id="contact">
             <h2>Get In Touch!</h2>
             <p>
@@ -196,7 +157,7 @@ function HomeIndex({ data }) {
               <div className="8u 12u$(small)">
                 <form
                   method="post"
-                  action="https://formspree.io/me@andytran.at"
+                  action="https://formspree.io/me@andytran.ca"
                 >
                   <div className="row uniform 50%">
                     <div className="6u 12u$(xsmall)">
@@ -301,6 +262,18 @@ export const pageQuery = graphql`
     headerImage: imageSharp(fluid: { originalName: { regex: "/bg.jpg/" } }) {
       fluid(maxWidth: 1240) {
         ...GatsbyImageSharpFluid
+      }
+    }
+
+    posts: allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            title
+            title
+          }
+          html
+        }
       }
     }
   }
