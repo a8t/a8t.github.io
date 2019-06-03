@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/.cache": true,
+    "**/public": true,
+    "**/yarn-error.log": true,
+    "**/yarn.lock": true
+  },
+  "workbench.editor.enablePreview": false
+}
