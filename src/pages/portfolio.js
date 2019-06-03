@@ -85,21 +85,21 @@ const DEFAULT_IMAGES = [
       { name: 'Ruby on Rails', type: tech.backend },
     ],
   },
-  {
-    id: '4',
-    src: userstories,
-    thumbnail: userstoriesThumb,
-    caption: 'User Stories',
-    description: `We needed a tool to organize our thoughts while
-                building Timetablr, so I put together a simple drag-and-drop app for
-                adding and sorting feature ideas. Every user has a story!`,
-    demoLink: 'https://andytran.ca/user-stories',
-    repoLink: 'https://github.com/a8t/user-stories',
-    techStack: [
-      { name: 'VueJS', type: tech.frontend },
-      { name: 'Firebase', type: tech.backend },
-    ],
-  },
+  // {
+  //   id: '4',
+  //   src: userstories,
+  //   thumbnail: userstoriesThumb,
+  //   caption: 'User Stories',
+  //   description: `We needed a tool to organize our thoughts while
+  //               building Timetablr, so I put together a simple drag-and-drop app for
+  //               adding and sorting feature ideas. Every user has a story!`,
+  //   demoLink: 'https://andytran.ca/user-stories',
+  //   repoLink: 'https://github.com/a8t/user-stories',
+  //   techStack: [
+  //     { name: 'VueJS', type: tech.frontend },
+  //     { name: 'Firebase', type: tech.backend },
+  //   ],
+  // },
 ]
 
 const Portfolio = () => {
