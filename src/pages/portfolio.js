@@ -93,7 +93,7 @@ const DEFAULT_IMAGES = [
     description: `We needed a tool to organize our thoughts while
                 building Timetablr, so I put together a simple drag-and-drop app for
                 adding and sorting feature ideas. Every user has a story!`,
-    demoLink: 'https://andytran.at/user-stories',
+    demoLink: 'https://andytran.ca/user-stories',
     repoLink: 'https://github.com/a8t/user-stories',
     techStack: [
       { name: 'VueJS', type: tech.frontend },

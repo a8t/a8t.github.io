@@ -72,11 +72,11 @@ function Contact({ data }) {
               </a>
             </li>
             <li>
-              <a href="mailto:me@andytran.at">
+              <a href="mailto:me@andytran.ca">
                 <h3 className="icon fa-envelope-o">
                   <span className="label">Email</span>
                 </h3>
-                me@andytran.at
+                me@andytran.ca
               </a>
             </li>
           </ul>
