@@ -1,109 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import Gallery from '../components/Gallery'
-import Tech from '../components/Tech'
-import { tech } from '../assets/vars.json'
-
-import timetablr from '../assets/images/fulls/timetablr.gif'
-import roomvo from '../assets/images/fulls/roomvo.gif'
-import userstories from '../assets/images/fulls/userstories.jpg'
-import tuner from '../assets/images/fulls/tuner.gif'
-import kamalayan from '../assets/images/fulls/kamalayan.gif'
-
-import timetablrThumb from '../assets/images/thumbs/timetablrThumb.jpg'
-import roomvoThumb from '../assets/images/thumbs/roomvoThumb.jpg'
-import userstoriesThumb from '../assets/images/thumbs/userstoriesThumb.jpg'
-import tunerThumb from '../assets/images/thumbs/tunerThumb.jpg'
-import kamalayanThumb from '../assets/images/thumbs/kamalayanThumb.jpg'
-
-const TechContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-`
-
-const DEFAULT_IMAGES = [
-  {
-    id: 'roomvo',
-    src: roomvo,
-    thumbnail: roomvoThumb,
-    caption: 'Roomvo',
-    description: `At roomvo I worked on the landing page as well as the visualizer app
-                and backend infrastructure for a CRM. Django for the backend (analytics,
-                database interactions) and Polymer for the frontend.`,
-    demoLink: 'https://www.roomvo.com',
-    techStack: [
-      { name: 'PolymerJS', type: tech.frontend },
-      { name: 'Django (Python)', type: tech.backend },
-    ],
-  },
-  {
-    id: '1',
-    src: kamalayan,
-    thumbnail: kamalayanThumb,
-    caption: 'Kamalayan',
-    description: `Kamalayan is a Filipino youth media collective in Toronto.
-                I rebuilt their website (including a CMS for blog content)
-                to help promote their new summer 2018 Midya Project.`,
-    demoLink: 'https://kamalayan.ca',
-    repoLink: 'https://github.com/a8t/kamalayan/',
-    techStack: [
-      { name: 'React', type: tech.frontend },
-      { name: 'SCSS', type: tech.frontend },
-      { name: 'Netlify', type: tech.backend },
-    ],
-  },
-  {
-    id: '2',
-    src: tuner,
-    thumbnail: tunerThumb,
-    caption: 'WebTuner',
-    description: `Guitar tuner apps often lack a convenience factor, requiring plugins or
-                installation. I used browser web audio APIs to create a simple
-                but sturdy tuner that works out of the box.`,
-    demoLink: 'https://www.webtuner.app',
-    repoLink: 'https://github.com/a8t/guitar-tuner/',
-    techStack: [
-      { name: 'VueJS', type: tech.frontend },
-      { name: 'Web Audio API', type: tech.misc },
-    ],
-  },
-  {
-    id: '3',
-    src: timetablr,
-    thumbnail: timetablrThumb,
-    caption: 'Timetablr',
-    description: `One of my least favourite parts of each school year during university was
-            scheduling courses by hand. We built Timetablr focusing on a fun,
-            intuitive interface to improve that experience.
-            `,
-    demoLink: 'https://timetablr.com',
-    repoLink: 'https://github.com/a8t/timetablr',
-    techStack: [
-      { name: 'React', type: tech.frontend },
-      { name: 'Ruby on Rails', type: tech.backend },
-    ],
-  },
-  {
-    id: '4',
-    src: userstories,
-    thumbnail: userstoriesThumb,
-    caption: 'User Stories',
-    description: `We needed a tool to organize our thoughts while
-                building Timetablr, so I put together a simple drag-and-drop app for
-                adding and sorting feature ideas. Every user has a story!`,
-    demoLink: 'https://andytran.at/user-stories',
-    repoLink: 'https://github.com/a8t/user-stories',
-    techStack: [
-      { name: 'VueJS', type: tech.frontend },
-      { name: 'Firebase', type: tech.backend },
-    ],
-  },
-]
+import Portfolio from './portfolio'
+import Contact from './contact'
 
 function HomeIndex({ data }) {
   const { site, headerImage, posts } = data
@@ -121,17 +22,7 @@ function HomeIndex({ data }) {
         </Helmet>
 
         <div id="main">
-          <section id="Portfolio">
-            <h2>Portfolio</h2>
-
-            <TechContainer>
-              <Tech type={tech.frontend}>Frontend</Tech>
-              <Tech type={tech.backend}>Backend</Tech>
-              <Tech type={tech.misc}>Misc</Tech>
-            </TechContainer>
-
-            <Gallery images={[...DEFAULT_IMAGES]} />
-          </section>
+          <Portfolio />
 
           {posts.edges.map(({ node }) => {
             const { frontmatter, html } = node
@@ -146,102 +37,7 @@ function HomeIndex({ data }) {
             )
           })}
 
-          <section id="contact">
-            <h2>Get In Touch!</h2>
-            <p>
-              I'd love to hear from you. You can reach me either via the form
-              below or via the social media links. I'll definitely get back to
-              you ASAP!
-            </p>
-            <div className="row">
-              <div className="8u 12u$(small)">
-                <form
-                  method="post"
-                  action="https://formspree.io/me@andytran.ca"
-                >
-                  <div className="row uniform 50%">
-                    <div className="6u 12u$(xsmall)">
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Name"
-                      />
-                    </div>
-                    <div className="6u 12u$(xsmall)">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div className="12u">
-                      <textarea
-                        name="message"
-                        id="message"
-                        placeholder="Message"
-                        rows="4"
-                      />
-                    </div>
-                  </div>
-                  <input
-                    className="form-submit"
-                    type="submit"
-                    value="Send Message"
-                  />
-                </form>
-              </div>
-              <div className="4u 12u$(small)">
-                <ul className="labeled-icons">
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/andy8tran"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <h3 className="icon fa-linkedin-square">
-                        <span className="label">LinkedIn</span>
-                      </h3>
-                      andy8tran
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/a8t"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <h3 className="icon fa-github">
-                        <span className="label">Github</span>
-                      </h3>
-                      a8t
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://codepen.io/a8t/pens/public/"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <h3 className="icon fa-codepen">
-                        <span className="label">CodePen</span>
-                      </h3>
-                      a8t
-                    </a>
-                  </li>
-                  <li>
-                    <a href="mailto:me@andytran.at">
-                      <h3 className="icon fa-envelope-o">
-                        <span className="label">Email</span>
-                      </h3>
-                      me@andytran.at
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
+          <Contact />
         </div>
       </div>
     </Layout>
