@@ -26,7 +26,7 @@ function Header({ headerImage }) {
           <strong>I'm Andy.</strong>
           <p>
             I'm a software developer, <br />
-            bike mechanic, and <br />
+            amateur musician, and <br />
             recovering physicist.
           </p>
         </h1>
