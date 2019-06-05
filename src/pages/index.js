@@ -3,11 +3,11 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import Portfolio from './portfolio'
-import Contact from './contact'
+import Portfolio from '../components/portfolio'
+import Contact from '../components/contact'
 
 function HomeIndex({ data }) {
-  const { site, headerImage, posts } = data
+  const { site, headerImage, posts, portfolioItems } = data
 
   const { title: siteTitle, description: siteDescription } = site.siteMetadata
 
@@ -22,10 +22,9 @@ function HomeIndex({ data }) {
         </Helmet>
 
         <div id="main">
-          <Portfolio />
+          <Portfolio data={{ portfolioItems }} />
 
-          {posts.edges.map(({ node }) => {
-            const { frontmatter, html } = node
+          {posts.nodes.map(({ frontmatter, html }) => {
             const { sectionId, title } = frontmatter
             return (
               <section id={sectionId} key={sectionId}>
@@ -61,15 +60,39 @@ export const pageQuery = graphql`
       }
     }
 
-    posts: allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            title
-            title
-          }
-          html
+    posts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/(posts)/.*.md$/" } }
+    ) {
+      nodes {
+        frontmatter {
+          title
         }
+        html
+      }
+    }
+
+    portfolioItems: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/(portfolio_pieces)/.*.md$/" } }
+    ) {
+      nodes {
+        frontmatter {
+          id
+          src
+          thumbnail {
+            childImageSharp {
+              fixed(height: 230) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          caption
+          demoLink
+          repoLink
+          frontend
+          backend
+          misc
+        }
+        html
       }
     }
   }

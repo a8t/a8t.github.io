@@ -1,8 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Gallery from '../components/Gallery'
-import Tech from '../components/Tech'
+import Gallery from './Gallery'
+import Tech from './Tech'
+import GalleryItem from './GalleryItem'
 import { tech } from '../assets/vars.json'
 
 import timetablr from '../assets/images/fulls/timetablr.gif'
@@ -102,7 +103,16 @@ const DEFAULT_IMAGES = [
   // },
 ]
 
-const Portfolio = () => {
+const GalleryContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media screen and (max-width: 862px) {
+    flex-direction: column;
+  }
+`
+
+const Portfolio = ({ data }) => {
   return (
     <section id="Portfolio">
       <header className="major">
@@ -115,25 +125,66 @@ const Portfolio = () => {
         <Tech type={tech.misc}>Misc</Tech>
       </TechContainer>
 
-      <Gallery images={[...DEFAULT_IMAGES]} />
+      <GalleryContainer>
+        {DEFAULT_IMAGES.map(
+          ({
+            id,
+            src,
+            thumbnail,
+            caption,
+            demoLink,
+            repoLink,
+            techStack,
+            description,
+          }) => {
+            return (
+              <GalleryItem
+                key={id}
+                {...{
+                  src,
+                  thumbnail,
+                  caption,
+                  demoLink,
+                  repoLink,
+                  techStack,
+                  description,
+                }}
+              />
+            )
+          }
+        )}
+      </GalleryContainer>
     </section>
   )
 }
 
 export default Portfolio
 
-export const pageQuery = graphql`
-  query PortfolioQuery {
-    porfolioItems: allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            title
-            title
-          }
-          html
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query PortfolioQuery {
+//     portfolioItems: allMarkdownRemark(
+//       filter: { fileAbsolutePath: { regex: "/(portfolio_pieces)/.*.md$/" } }
+//     ) {
+//       nodes {
+//         frontmatter {
+//           id
+//           src
+//           thumbnail {
+//             childImageSharp {
+//               fixed(height: 230) {
+//                 srcSet
+//               }
+//             }
+//           }
+//           caption
+//           demoLink
+//           repoLink
+//           frontend
+//           backend
+//           misc
+//         }
+//         html
+//       }
+//     }
+//   }
+// `

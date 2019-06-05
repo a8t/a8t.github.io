@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-images'
 import styled from 'styled-components'
@@ -144,40 +145,50 @@ class GalleryItem extends React.Component {
     })
   }
   render() {
-    const { obj, index } = this.props
-    const techStackBubbles = obj.techStack.map(eachTech => (
+    const {
+      src,
+      thumbnail,
+      caption,
+      demoLink,
+      repoLink,
+      techStack,
+      description,
+    } = this.props
+
+    const techStackBubbles = techStack.map(eachTech => (
       <Tech key={eachTech.name} type={eachTech.type}>
         {eachTech.name}
       </Tech>
     ))
+
     return (
       <GalleryItemArticle>
-        <ItemThumbnailContainer href={obj.src} onClick={this.openLightbox}>
-          <ItemThumbnail src={obj.thumbnail} alt={obj.caption} />
+        <ItemThumbnailContainer href={src} onClick={this.openLightbox}>
+          <ItemThumbnail src={thumbnail} alt={caption} />
         </ItemThumbnailContainer>
         <TitleLinkContainer>
-          <ItemTitle>{obj.caption}</ItemTitle>
+          <ItemTitle>{caption}</ItemTitle>
           <LinkContainer>
-            {obj.demoLink && (
-              <Link href={obj.demoLink} target="_blank" rel="noopener">
+            {demoLink && (
+              <Link href={demoLink} target="_blank" rel="noopener">
                 Site
               </Link>
             )}
-            {obj.repoLink && (
-              <Link href={obj.repoLink} target="_blank" rel="noopener">
+            {repoLink && (
+              <Link href={repoLink} target="_blank" rel="noopener">
                 Code
               </Link>
             )}
           </LinkContainer>
         </TitleLinkContainer>
-        <ItemDescription>{obj.description}</ItemDescription>
+        <ItemDescription>{description}</ItemDescription>
         <TechContainer>{techStackBubbles}</TechContainer>
         <Lightbox
           images={[
             {
-              src: obj.src,
-              caption: obj.caption,
-              alt: obj.description,
+              src,
+              caption,
+              alt: description,
             },
           ]}
           isOpen={this.state.lightboxIsOpen}
@@ -186,11 +197,6 @@ class GalleryItem extends React.Component {
       </GalleryItemArticle>
     )
   }
-}
-
-GalleryItem.propTypes = {
-  obj: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
 }
 
 export default GalleryItem
