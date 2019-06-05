@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-images'
@@ -122,81 +122,67 @@ const TechContainer = styled.div`
   flex-wrap: wrap;
 `
 
-class GalleryItem extends React.Component {
-  constructor() {
-    super()
+function GalleryItem({
+  src,
+  thumbnail,
+  caption,
+  demoLink,
+  repoLink,
+  techStack,
+  description,
+}) {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
-    this.state = {
-      lightboxIsOpen: false,
-    }
+  const openLightbox = e => {
+    e.preventDefault()
+    setIsLightboxOpen(true)
+  }
 
-    this.closeLightbox = this.closeLightbox.bind(this)
-    this.openLightbox = this.openLightbox.bind(this)
+  const closeLightbox = () => {
+    setIsLightboxOpen(false)
   }
-  openLightbox(event) {
-    event.preventDefault()
-    this.setState({
-      lightboxIsOpen: true,
-    })
-  }
-  closeLightbox() {
-    this.setState({
-      lightboxIsOpen: false,
-    })
-  }
-  render() {
-    const {
-      src,
-      thumbnail,
-      caption,
-      demoLink,
-      repoLink,
-      techStack,
-      description,
-    } = this.props
 
-    const techStackBubbles = techStack.map(eachTech => (
-      <Tech key={eachTech.name} type={eachTech.type}>
-        {eachTech.name}
-      </Tech>
-    ))
+  const techStackBubbles = techStack.map(eachTech => (
+    <Tech key={eachTech.name} type={eachTech.type}>
+      {eachTech.name}
+    </Tech>
+  ))
 
-    return (
-      <GalleryItemArticle>
-        <ItemThumbnailContainer href={src} onClick={this.openLightbox}>
-          <ItemThumbnail src={thumbnail} alt={caption} />
-        </ItemThumbnailContainer>
-        <TitleLinkContainer>
-          <ItemTitle>{caption}</ItemTitle>
-          <LinkContainer>
-            {demoLink && (
-              <Link href={demoLink} target="_blank" rel="noopener">
-                Site
-              </Link>
-            )}
-            {repoLink && (
-              <Link href={repoLink} target="_blank" rel="noopener">
-                Code
-              </Link>
-            )}
-          </LinkContainer>
-        </TitleLinkContainer>
-        <ItemDescription>{description}</ItemDescription>
-        <TechContainer>{techStackBubbles}</TechContainer>
-        <Lightbox
-          images={[
-            {
-              src,
-              caption,
-              alt: description,
-            },
-          ]}
-          isOpen={this.state.lightboxIsOpen}
-          onClose={this.closeLightbox}
-        />
-      </GalleryItemArticle>
-    )
-  }
+  return (
+    <GalleryItemArticle>
+      <ItemThumbnailContainer href={src} onClick={openLightbox}>
+        <ItemThumbnail src={thumbnail} alt={caption} />
+      </ItemThumbnailContainer>
+      <TitleLinkContainer>
+        <ItemTitle>{caption}</ItemTitle>
+        <LinkContainer>
+          {demoLink && (
+            <Link href={demoLink} target="_blank" rel="noopener">
+              Site
+            </Link>
+          )}
+          {repoLink && (
+            <Link href={repoLink} target="_blank" rel="noopener">
+              Code
+            </Link>
+          )}
+        </LinkContainer>
+      </TitleLinkContainer>
+      <ItemDescription>{description}</ItemDescription>
+      <TechContainer>{techStackBubbles}</TechContainer>
+      <Lightbox
+        images={[
+          {
+            src,
+            caption,
+            alt: description,
+          },
+        ]}
+        isOpen={isLightboxOpen}
+        onClose={closeLightbox}
+      />
+    </GalleryItemArticle>
+  )
 }
 
 export default GalleryItem
